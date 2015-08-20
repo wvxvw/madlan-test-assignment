@@ -1,5 +1,112 @@
 'use strict';
 
+var BootstrapContainer = React.createClass({
+    initGapi: function () {
+        var that = this;
+        google.load("books", "0", {
+            callback: function () {
+                that.renderBook();
+            }
+        });
+    },
+    renderBook: function () {
+        var viewer = new google.books.DefaultViewer($("#gviewer").get(0));
+        viewer.load("ISBN:0738531367");
+    },
+    renderPlot: function () {
+        var d1 = [];
+		for (var i = 0; i < Math.PI * 2; i += 0.25) {
+			d1.push([i, Math.sin(i)]);
+		}
+
+		var d2 = [];
+		for (var i = 0; i < Math.PI * 2; i += 0.25) {
+			d2.push([i, Math.cos(i)]);
+		}
+
+		var d3 = [];
+		for (var i = 0; i < Math.PI * 2; i += 0.1) {
+			d3.push([i, Math.tan(i)]);
+		}
+
+		$.plot("#plot", [
+			{ label: "sin(x)", data: d1, color: "#5E664D" },
+			{ label: "cos(x)", data: d2 },
+			{ label: "tan(x)", data: d3 }
+		], {
+			series: {
+				lines: { show: true },
+				points: { show: true }
+			},
+			xaxis: {
+				ticks: [
+					0, [ Math.PI/2, "\u03c0/2" ], [ Math.PI, "\u03c0" ],
+					[ Math.PI * 3/2, "3\u03c0/2" ], [ Math.PI * 2, "2\u03c0" ]
+				]
+			},
+			yaxis: {
+				ticks: 10,
+				min: -2,
+				max: 2,
+				tickDecimals: 3
+			},
+			grid: {
+				backgroundColor: "#F7ECE9",
+				borderWidth: {
+					top: 4,
+					right: 4,
+					bottom: 4,
+					left: 4
+				},
+                borderColor: "#A99C9A"
+			}
+		});
+    },
+    render: function () {
+        console.log("rendering container");
+        return (
+            <div className="container-fluid">
+              <div className="row top-row">
+                <div className="col-lg-6"><h6 className="bevel">Book search</h6></div>
+              </div>
+              <div className="row middle-row shadow">
+                <div className="col-lg-8">
+<ul className="list-inline">
+  <li>
+    <div className="panel panel-default book">
+        <div className="panel-body">Book 1</div>
+    </div>
+</li>
+  <li>Book 2</li>
+  <li>Book 3</li>
+</ul>
+</div>
+              </div>
+              <div className="row bottom-row plot-column">
+                <div className="col-lg-5 white">
+<form className="form-inline pad-more">
+  <div className="form-group">
+    <div className="input-group">
+      <input type="text" className="form-control" id="search" placeholder="Search for books"></input>
+    </div>
+  </div>
+  <button type="submit" className="btn btn-primary">Search</button>
+</form>
+                </div>
+              </div>
+            <div className="row bottom-row plot-column">
+              <div className="col-lg-5 white padded"><div id="gviewer"></div></div>
+              <div className="col-lg-6"><div id="plot"></div></div>
+            </div>
+            </div>
+        );
+    },
+    componentDidMount: function () {
+        this.renderPlot();
+        this.initGapi();
+    }
+});
+
 // Simple pure-React component so we don't have to remember
 // Bootstrap's classes
 var BootstrapButton = React.createClass({
@@ -124,4 +231,4 @@ var Example = React.createClass({
   }
 });
 
-React.render(<Example />, document.getElementById('container'));
+React.render(<BootstrapContainer/>, document.getElementById('container'));
