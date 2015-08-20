@@ -1,0 +1,35 @@
+{
+    "name": "madlan",
+    "version": "0.0.0",
+    "authors": [
+        "wvxvw <olegsivokon@gmail.com>"
+    ],
+    "description": "Test assignment for Madlan",
+    "main": "index.html",
+    "moduleType": [
+        "amd"
+    ],
+    "keywords": [
+        "books",
+        "test",
+        "assignment",
+        "madlan"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/wvxvw/madlan-test-assignment",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "jquery": "~2.1.4",
+        "bootstrap": "~3.3.5",
+        "console-polyfill": "~0.2.1",
+        "react-bootstrap": "~0.24.5",
+        "react": "~0.13.3",
+        "react-chartjs": "~0.6.0"
+    }
+}
