@@ -1,33 +1,107 @@
 'use strict';
 
-var BootstrapContainer = React.createClass({
-    initGapi: function () {
-        var that = this;
-        google.load("books", "0", {
-            callback: function () {
-                that.renderBook();
-            }
-        });
+var blackStar = "\u2605";
+var star = "\u2606";
+
+var BookContainer = React.createClass({
+    render: function () {
+        return (
+            <div className="container book-container">
+              <div className="row book">
+                <div className="col-lg-9 white">
+                  <div className="book-icon-placeholder">
+                    <img className="book-icon"/>
+                  </div>
+                </div>
+                <div className="col-pull-lg-1">
+                  <div className="book-info">
+                    <div className="btn-group-vertical">
+                      <div className="book-info">
+                        <div className="btn-group-vertical">
+                          <button type="button" className="btn btn-primary book-info">{this.props.country}</button>
+                          <button type="button" className="btn btn-primary book-info">{this.props.price}</button>
+                          <button type="button" className="btn btn-primary book-info disabled">EPUB</button>
+                          <button type="button" className="btn btn-primary book-info">PDF</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>);
+    }
+});
+
+var PreviewList = React.createClass({
+    render: function () {
+        return (
+            <div className="row middle-row shadow">
+              <div className="col-lg-8">
+                <ul className="list-inline">
+                  <li>
+                    <BookContainer country="US" price="$100"/>
+                  </li>
+                  <li>Book 2</li>
+                  <li>Book 3</li>
+                </ul>
+              </div>
+            </div>);
+    }
+});
+
+var Header = React.createClass({
+    render: function () {
+        return (
+            <div className="row top-row">
+              <div className="col-lg-6">
+                <h6 className="bevel">Book search</h6>
+              </div>
+            </div>);
+    }
+});
+
+var BookDetails = React.createClass({
+    renderRating: function () {
+        var result = "", rating = this.props.rating;
+        for (var i = 0; i < 5; i++)
+            result += i < rating ? "★" : "☆";
+        return result;
     },
-    renderBook: function () {
-        var viewer = new google.books.DefaultViewer($("#gviewer").get(0));
-        viewer.load("ISBN:0738531367");
-    },
+    render: function () {
+        return (
+            <div className="col-lg-2">
+              <div className="row white">
+                <h2>{this.props.title}</h2>
+                <h3>{this.props.authors}</h3>
+                <p>{this.props.description}</p>
+              </div>
+              <div className="row medium-dark">
+                <h4 className="right-aligned right-padded"
+                   >{this.props.publisher}</h4>
+                <h5 className="right-aligned right-padded"
+                   >{this.props.isbn} (this.props.date)</h5>
+              </div>
+              <div className="row dark">
+                <h4 id="ranking" className="right-aligned right-padded"
+                  >{this.renderRating()}</h4>
+              </div>
+            </div>);
+    }
+});
+
+var Plot = React.createClass({
     renderPlot: function () {
         var d1 = [];
-		for (var i = 0; i < Math.PI * 2; i += 0.25) {
+		for (var i = 0; i < Math.PI * 2; i += 0.25)
 			d1.push([i, Math.sin(i)]);
-		}
 
 		var d2 = [];
-		for (var i = 0; i < Math.PI * 2; i += 0.25) {
+		for (var i = 0; i < Math.PI * 2; i += 0.25)
 			d2.push([i, Math.cos(i)]);
-		}
 
 		var d3 = [];
-		for (var i = 0; i < Math.PI * 2; i += 0.1) {
+		for (var i = 0; i < Math.PI * 2; i += 0.1)
 			d3.push([i, Math.tan(i)]);
-		}
 
 		$.plot("#plot", [
 			{ label: "sin(x)", data: d1, color: "#5E664D" },
@@ -44,66 +118,98 @@ var BootstrapContainer = React.createClass({
 					[ Math.PI * 3/2, "3\u03c0/2" ], [ Math.PI * 2, "2\u03c0" ]
 				]
 			},
-			yaxis: {
-				ticks: 10,
-				min: -2,
-				max: 2,
-				tickDecimals: 3
-			},
+			yaxis: { ticks: 10, min: -2, max: 2, tickDecimals: 3 },
 			grid: {
 				backgroundColor: "#F7ECE9",
-				borderWidth: {
-					top: 4,
-					right: 4,
-					bottom: 4,
-					left: 4
-				},
+				borderWidth: { top: 4, right: 4, bottom: 4, left: 4 },
                 borderColor: "#A99C9A"
 			}
 		});
     },
     render: function () {
-        console.log("rendering container");
         return (
-            <div className="container-fluid">
-              <div className="row top-row">
-                <div className="col-lg-6"><h6 className="bevel">Book search</h6></div>
+            <div className="col-lg-6">
+              <div className="row">
+                <div id="plot"></div>
               </div>
-              <div className="row middle-row shadow">
-                <div className="col-lg-8">
-<ul className="list-inline">
-  <li>
-    <div className="panel panel-default book">
-        <div className="panel-body">Book 1</div>
-    </div>
-</li>
-  <li>Book 2</li>
-  <li>Book 3</li>
-</ul>
-</div>
-              </div>
-              <div className="row bottom-row plot-column">
-                <div className="col-lg-5 white">
-<form className="form-inline pad-more">
-  <div className="form-group">
-    <div className="input-group">
-      <input type="text" className="form-control" id="search" placeholder="Search for books"></input>
-    </div>
-  </div>
-  <button type="submit" className="btn btn-primary">Search</button>
-</form>
+              <div className="row">
+                <div className="left-padded">
+                  <p>What kind of data is presented on this graph</p>
                 </div>
               </div>
-            <div className="row bottom-row plot-column">
-              <div className="col-lg-5 white padded"><div id="gviewer"></div></div>
-              <div className="col-lg-6"><div id="plot"></div></div>
-            </div>
+            </div>);
+    },
+    componentDidMount: function () { this.renderPlot(); }
+});
+
+var SearchBox = React.createClass({
+    render: function () {
+        return (
+            <div className="row bottom-row medium-dark">
+              <div className="col-lg-4 white">
+                <div className="form-group pad-more">
+                  <input type="text" 
+                         className="form-control"
+                         id="search"
+                         placeholder="Search for books"/>
+                </div>
+              </div>
+              <div className="col-lg-1 white pad-more pad-two">
+                <button type="submit" 
+                        id="submit"
+                        className="btn btn-primary">Search</button>
+              </div>
+              <div className="col-lg-4">
+                <h2 className="light-text">Statistics</h2>
+              </div>
+            </div>);
+    }
+});
+
+var GViewer = React.createClass({
+    initGapi: function () {
+        var that = this;
+        google.load("books", "0", {
+            callback: function () { that.renderBook(); }
+        });
+    },
+    renderBook: function () {
+        var viewer = new google.books.DefaultViewer(
+            $("#gviewer").get(0));
+        viewer.load("ISBN:0738531367");
+    },
+    render: function () {
+        return (
+            <div className="col-lg-3 white">
+              <div id="gviewer-wrapper">
+                <div id="gviewer"></div>
+              </div>
+            </div>);
+    },
+    componentDidMount: function () { this.initGapi(); }
+});
+
+var BootstrapContainer = React.createClass({
+    render: function () {
+        return (
+            <div className="container-fluid">
+              <Header/>
+              <PreviewList/>
+              <SearchBox/>
+              <div className="row bottom-row plot-column">
+                <GViewer/>
+                <BookDetails
+                  title="Title Of The Book"
+                  authors="Authors of the book"
+                  rating="3"
+                  publisher="Publisher"
+                  isbn="ISBN"
+                  date="date"
+                  />
+                <Plot/>
+              </div>
             </div>
         );
-    },
-    componentDidMount: function () {
-        this.renderPlot();
-        this.initGapi();
     }
 });
 

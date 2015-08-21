@@ -5673,11 +5673,9 @@ body {
 
 .pad-more { padding-top: 16px }
 
-#search { width: 600px; margin-right: 8px }
+.pad-two { padding-bottom: 2px }
 
 .plot-column { background-color: #F7ECE9 }
-
-#plot { min-width: 400px; min-height: 400px; float: left; margin-left: 124px; margin-bottom: 124px; }
 
 .white { background-color: #FFF }
 
@@ -5694,13 +5692,52 @@ body {
 .book {
     width: 240px; height: 280px; background-color: #EEE2E6;
     margin-top: 18px; border-color: #4C622B;
-     -webkit-box-shadow: 0 12px 6px -6px rgba(0,0,0,0.4);
-     -moz-box-shadow: 0 12px 6px -6px rgba(0,0,0,0.4);
-     box-shadow: 0 12px 6px -6px rgba(0,0,0,0.4);
+    padding: 0 !important;
+    -webkit-box-shadow: 0 12px 6px -6px rgba(0,0,0,0.4);
+    -moz-box-shadow: 0 12px 6px -6px rgba(0,0,0,0.4);
+    box-shadow: 0 12px 6px -6px rgba(0,0,0,0.4);
 }
 
-#gviewer {
-    min-height: 800px; margin-top: 24px; margin-bottom: 12px
+.book-info { background-color: #569E36; border: 0 }
+
+.book-icon { width: 200px; padding: 0; margin: 0 }
+
+.book-icon-placeholder { width: 200px; height: 280px }
+
+.book-info * {
+    -webkit-border-radius: 0 !important;
+    -moz-border-radius: 0 !important;
+    border-radius: 0 !important;
 }
+
+.book-container { width: 240px }
 
 .padded { padding-right: 100px }
+
+.right-aligned { text-align: right }
+
+.medium-dark { background-color: #A99C9A }
+
+.dark { background-color: #4C622B; color: #FFF }
+
+.light-text { color: #4C622B; text-align: right }
+
+.right-padded { padding-right: 16px }
+
+/* min-height: 600px; min-width: 440px;  */
+#gviewer-wrapper {
+    padding-left: 8px; marign-right: 20px; margin-top: 24px; margin-bottom: 12px
+}
+#gviewer {
+    min-height: 600px
+}
+
+#search { margin-left: 8px; margin-right: 8px; margin-bottom: 14px }
+
+#submit { margin-bottom: 14px }
+
+.left-padded, #plot { margin-left: 118px }
+#plot {
+    min-width: 580px; min-height: 400px; float: left;
+    margin-bottom: 12px; margin-top: 18px }
+#ranking { font-size: 24px }
