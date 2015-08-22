@@ -1,16 +1,31 @@
 'use strict';
 
-var blackStar = "\u2605";
-var star = "\u2606";
+var BookInfoButton = React.createClass({
+  render: function() {
+      var btnClass = "btn btn-primary book-info";
+      if (this.props.disabled) btnClass += " disabled";
+
+      return (
+          <button type="button" 
+                  className={btnClass}
+                  >{this.props.label}</button>);
+  }
+});
 
 var BookContainer = React.createClass({
+    select: function (event) {
+        if (this.props.onSelect)
+            this.props.onSelect(this.props.data);
+    },
     render: function () {
         return (
             <div className="container book-container">
               <div className="row book">
                 <div className="col-lg-9 white">
-                  <div className="book-icon-placeholder">
-                    <img className="book-icon"/>
+                  <div className="book-icon-placeholder"
+                       onClick={this.select}>
+                    <img className="book-icon desaturate"
+                         src={this.props.thumb}/>
                   </div>
                 </div>
                 <div className="col-pull-lg-1">
@@ -18,10 +33,12 @@ var BookContainer = React.createClass({
                     <div className="btn-group-vertical">
                       <div className="book-info">
                         <div className="btn-group-vertical">
-                          <button type="button" className="btn btn-primary book-info">{this.props.country}</button>
-                          <button type="button" className="btn btn-primary book-info">{this.props.price}</button>
-                          <button type="button" className="btn btn-primary book-info disabled">EPUB</button>
-                          <button type="button" className="btn btn-primary book-info">PDF</button>
+                          <BookInfoButton label={this.props.country}/>
+                          <BookInfoButton label={this.props.price}/>
+                          <BookInfoButton label="EPUB"
+                            disabled={this.props.epub}/>
+                          <BookInfoButton label="PDF"
+                            disabled={this.props.pdf}/>
                         </div>
                       </div>
                     </div>
@@ -33,16 +50,38 @@ var BookContainer = React.createClass({
 });
 
 var PreviewList = React.createClass({
+    formatPrice: function (listPrice) {
+        switch ((listPrice || {}).currencyCode || "NA") {
+        case "USD": return "$" + listPrice.amount;
+        case "EUR": return listPrice.amount + "€";
+        case "ILS": return listPrice.amount + "₪";
+        case "NA": return "NA";
+        default: return listPrice.amount + " " + listPrice.currencyCode;
+        }
+    },
+    onSelect: function (data) {
+        if (this.props.onSelect) this.props.onSelect(data);
+    },
     render: function () {
+        var that = this;
         return (
             <div className="row middle-row shadow">
-              <div className="col-lg-8">
+              <div className="col-lg-10">
                 <ul className="list-inline">
-                  <li>
-                    <BookContainer country="US" price="$100"/>
-                  </li>
-                  <li>Book 2</li>
-                  <li>Book 3</li>
+                  {this.props.previews.map(function (data) {
+                    return (
+                        <li><BookContainer
+                             thumb={data.volumeInfo.imageLinks.thumbnail}
+                             country={data.saleInfo.country}
+                             epub={data.accessInfo.epub.isAvailable}
+                             pdf={data.accessInfo.pdf.isAvailable}
+                             price={that.formatPrice(data.saleInfo.listPrice)}
+                             data={data}
+                             onSelect={that.onSelect}
+                          />
+                        </li>
+                    );
+                  })}
                 </ul>
               </div>
             </div>);
@@ -62,24 +101,36 @@ var Header = React.createClass({
 
 var BookDetails = React.createClass({
     renderRating: function () {
-        var result = "", rating = this.props.rating;
+        var result = "", rating = this.props.ranking;
         for (var i = 0; i < 5; i++)
             result += i < rating ? "★" : "☆";
         return result;
+    },
+    formatISBN: function () {
+        return this.props.isbn ? "ISBN: " + this.props.isbn : "";
+    },
+    createDescription: function () {
+        return { __html: this.props.description };
     },
     render: function () {
         return (
             <div className="col-lg-2">
               <div className="row white">
                 <h2>{this.props.title}</h2>
-                <h3>{this.props.authors}</h3>
-                <p>{this.props.description}</p>
+                <h3>{this.props.subtitle}</h3>
+                {this.props.authors.map(function (author) {
+                    return <h4 className="author">{author}</h4>;
+                })}
+                <p className="description"
+                   dangerouslySetInnerHTML={this.createDescription()}/>
               </div>
               <div className="row medium-dark">
                 <h4 className="right-aligned right-padded"
                    >{this.props.publisher}</h4>
+                <h4 className="right-aligned right-padded"
+                   >{this.formatISBN()}</h4>
                 <h5 className="right-aligned right-padded"
-                   >{this.props.isbn} (this.props.date)</h5>
+                   >{this.props.date}</h5>
               </div>
               <div className="row dark">
                 <h4 id="ranking" className="right-aligned right-padded"
@@ -134,7 +185,7 @@ var Plot = React.createClass({
               </div>
               <div className="row">
                 <div className="left-padded">
-                  <p>What kind of data is presented on this graph</p>
+                  <p>What kind of data is presented in this graph</p>
                 </div>
               </div>
             </div>);
@@ -143,40 +194,46 @@ var Plot = React.createClass({
 });
 
 var SearchBox = React.createClass({
+    search: function () {
+        var val = $("#search").val();
+        if (val && this.props.searchHandler)
+            this.props.searchHandler(val);
+    },
+    keyup: function (event) {
+        if (event.which == 13) this.search();
+    },
     render: function () {
         return (
-            <div className="row bottom-row medium-dark">
+            <div className="row bottom-row plot-column medium-dark">
               <div className="col-lg-4 white">
                 <div className="form-group pad-more">
                   <input type="text" 
                          className="form-control"
                          id="search"
+                         onKeyUp={this.keyup}
                          placeholder="Search for books"/>
                 </div>
               </div>
               <div className="col-lg-1 white pad-more pad-two">
                 <button type="submit" 
                         id="submit"
-                        className="btn btn-primary">Search</button>
+                        className="btn btn-primary"
+                        onClick={this.search}>Search</button>
               </div>
               <div className="col-lg-4">
                 <h2 className="light-text">Statistics</h2>
               </div>
+              <div className="col-lg-3"/>
             </div>);
     }
 });
 
 var GViewer = React.createClass({
+    getInitialState: function () { return { viewer: null }; },
     initGapi: function () {
         var that = this;
-        google.load("books", "0", {
-            callback: function () { that.renderBook(); }
-        });
-    },
-    renderBook: function () {
-        var viewer = new google.books.DefaultViewer(
-            $("#gviewer").get(0));
-        viewer.load("ISBN:0738531367");
+        // If I don't use callback, this code will use document.write...
+        google.load("books", "0", { callback: _.identity });
     },
     render: function () {
         return (
@@ -186,155 +243,105 @@ var GViewer = React.createClass({
               </div>
             </div>);
     },
-    componentDidMount: function () { this.initGapi(); }
+    componentDidMount: function () { this.initGapi(); },
+    loadFail: function (data) {
+        console.log("failed loading: " + this.props.select);
+    },
+    loadSuccess: function (data) {
+        console.log("loaded: " + this.props.select);
+    },
+    componentDidUpdate: function () {
+        var elt = $("#gviewer");
+        elt.empty();
+        var viewer = new google.books.DefaultViewer(elt.get(0));
+        viewer.load(this.props.selected, this.loadFail, this.loadSuccess);
+    }
 });
 
 var BootstrapContainer = React.createClass({
+    getInitialState: function() {
+        return {
+            previews: [],
+            selected: "",
+            active: {
+                title: "", 
+                subtitle: "", 
+                authors: [], 
+                averageRating: 0,
+                publisher: "",
+                publishDate: "",
+                industryIdentifiers: [{ identifier: "" }]
+            }
+        };
+    },
+    repopulateList: function (data) {
+        var pending = data.items || [],
+            loaded = [], that = this;
+        
+        function itemLoadHandler(item, data) {
+            pending.splice(pending.indexOf(item));
+            loaded.push(data);
+            if (!pending.length)
+                that.setState({ previews: loaded });
+        }
+        _.each(pending, function (item) {
+            $.ajax("https://www.googleapis.com/books/v1/volumes/" + item.id)
+            .done(_.partial(itemLoadHandler, item))
+            .fail(that.displayError);
+        });
+    },
+    displayError: function (error) {
+        console.log("displaying error: " + error);
+    },
+    searchHandler: function (query) {
+        console.log("searching for: " + query);
+        this.props.maxResults = this.props.maxResults || 5;
+        this.props.startIndex = (this.props.startIndex + this.props.maxResults) || 0;
+        $.ajax({
+            url: "https://www.googleapis.com/books/v1/volumes",
+            dataType: "json",
+            data: {
+                q: query,
+                startIndex: this.props.startIndex,
+                maxResults: this.props.maxResults,
+            } })
+        .done(this.repopulateList)
+        .fail(this.displayError);
+    },
+    onSelect: function (data) {
+        this.setState({ 
+            selected: "http://books.google.co.il/books?id=" + 
+              data.id + "&pg=PP1#v=onepage",
+            active: data.volumeInfo
+        });
+    },
     render: function () {
         return (
             <div className="container-fluid">
               <Header/>
-              <PreviewList/>
-              <SearchBox/>
+              <PreviewList 
+                previews={this.state.previews}
+                onSelect={this.onSelect}
+                />
+              <SearchBox searchHandler={this.searchHandler}/>
               <div className="row bottom-row plot-column">
-                <GViewer/>
+                <GViewer selected={this.state.selected}/>
                 <BookDetails
-                  title="Title Of The Book"
-                  authors="Authors of the book"
-                  rating="3"
-                  publisher="Publisher"
-                  isbn="ISBN"
-                  date="date"
+                  title={this.state.active.title}
+                  subtitle={this.state.active.subtitle}
+                  description={this.state.active.description}
+                  authors={this.state.active.authors}
+                  rating={this.state.active.averageRating}
+                  publisher={this.state.active.publisher}
+                  date={this.state.active.publishDate}
+                  isbn={this.state.active.industryIdentifiers[0].identifier}
                   />
                 <Plot/>
+                <div className="col-lg-1"/>
               </div>
             </div>
         );
     }
 });
 
-// Simple pure-React component so we don't have to remember
-// Bootstrap's classes
-var BootstrapButton = React.createClass({
-  render: function() {
-    return (
-      <a {...this.props}
-        href="javascript:;"
-        role="button"
-        className={(this.props.className || '') + ' btn'} />
-    );
-  }
-});
-
-var BootstrapModal = React.createClass({
-  // The following two methods are the only places we need to
-  // integrate Bootstrap or jQuery with the components lifecycle methods.
-  componentDidMount: function() {
-    // When the component is added, turn it into a modal
-    $(React.findDOMNode(this))
-      .modal({backdrop: 'static', keyboard: false, show: false});
-  },
-  componentWillUnmount: function() {
-    $(React.findDOMNode(this)).off('hidden', this.handleHidden);
-  },
-  close: function() {
-    $(React.findDOMNode(this)).modal('hide');
-  },
-  open: function() {
-    $(React.findDOMNode(this)).modal('show');
-  },
-  render: function() {
-    var confirmButton = null;
-    var cancelButton = null;
-
-    if (this.props.confirm) {
-      confirmButton = (
-        <BootstrapButton
-          onClick={this.handleConfirm}
-          className="btn-primary">
-          {this.props.confirm}
-        </BootstrapButton>
-      );
-    }
-    if (this.props.cancel) {
-      cancelButton = (
-        <BootstrapButton onClick={this.handleCancel} className="btn-default">
-          {this.props.cancel}
-        </BootstrapButton>
-      );
-    }
-
-    return (
-      <div className="modal fade">
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <div className="modal-header">
-              <button
-                type="button"
-                className="close"
-                onClick={this.handleCancel}>
-                &times;
-              </button>
-              <h3>{this.props.title}</h3>
-            </div>
-            <div className="modal-body">
-              {this.props.children}
-            </div>
-            <div className="modal-footer">
-              {cancelButton}
-              {confirmButton}
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  },
-  handleCancel: function() {
-    if (this.props.onCancel) {
-      this.props.onCancel();
-    }
-  },
-  handleConfirm: function() {
-    if (this.props.onConfirm) {
-      this.props.onConfirm();
-    }
-  }
-});
-
-var Example = React.createClass({
-  handleCancel: function() {
-    if (confirm('Are you sure you want to cancel?')) {
-      this.refs.modal.close();
-    }
-  },
-  render: function() {
-    var modal = null;
-    modal = (
-      <BootstrapModal
-        ref="modal"
-        confirm="OK"
-        cancel="Cancel"
-        onCancel={this.handleCancel}
-        onConfirm={this.closeModal}
-        title="Hello, Bootstrap!">
-          This is a React component powered by jQuery and Bootstrap!
-      </BootstrapModal>
-    );
-    return (
-      <div className="example">
-        {modal}
-        <BootstrapButton onClick={this.openModal} className="btn-default">
-          Open modal
-        </BootstrapButton>
-      </div>
-    );
-  },
-  openModal: function() {
-    this.refs.modal.open();
-  },
-  closeModal: function() {
-    this.refs.modal.close();
-  }
-});
-
-React.render(<BootstrapContainer/>, document.getElementById('container'));
+React.render(<BootstrapContainer/>, $("#container").get(0));

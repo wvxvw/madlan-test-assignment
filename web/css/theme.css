@@ -5675,7 +5675,13 @@ body {
 
 .pad-two { padding-bottom: 2px }
 
-.plot-column { background-color: #F7ECE9 }
+.plot-column { background-color: #F7ECE9; display: table }
+
+.plot-column [class*="col-"] {
+    float: none;
+    display: table-cell;
+    vertical-align: top
+}
 
 .white { background-color: #FFF }
 
@@ -5700,7 +5706,7 @@ body {
 
 .book-info { background-color: #569E36; border: 0 }
 
-.book-icon { width: 200px; padding: 0; margin: 0 }
+.book-icon { width: 164px; padding: 0; margin: 0 }
 
 .book-icon-placeholder { width: 200px; height: 280px }
 
@@ -5710,7 +5716,7 @@ body {
     border-radius: 0 !important;
 }
 
-.book-container { width: 240px }
+.book-container { width: 254px }
 
 .padded { padding-right: 100px }
 
@@ -5723,6 +5729,20 @@ body {
 .light-text { color: #4C622B; text-align: right }
 
 .right-padded { padding-right: 16px }
+
+img.desaturate {
+    filter: grayscale(100%); 
+    -webkit-filter: grayscale(100%);
+    opacity: 0.6 }
+
+img.desaturate:hover {
+    filter: grayscale(0%); 
+    -webkit-filter: grayscale(0%);
+    opacity: 1 }
+
+p.description { padding-right: 6px }
+
+h4.author { padding-left: 48px }
 
 /* min-height: 600px; min-width: 440px;  */
 #gviewer-wrapper {
@@ -5737,6 +5757,7 @@ body {
 #submit { margin-bottom: 14px }
 
 .left-padded, #plot { margin-left: 118px }
+
 #plot {
     min-width: 580px; min-height: 400px; float: left;
     margin-bottom: 12px; margin-top: 18px }
