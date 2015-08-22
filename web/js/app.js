@@ -12,6 +12,20 @@ var BookInfoButton = React.createClass({
   }
 });
 
+var SortingHat = React.createClass({
+    render: function () {
+        return (
+            <div className="col-pull-lg-3">
+              <div className="btn-group sorting-hat">
+                <button type="button" className="btn btn-sm">by price</button>
+                <button type="button" className="btn btn-sm">by date</button>
+                <button type="button" className="btn btn-sm">alphabetically</button>
+              </div>
+            </div>
+        );
+    }
+});
+
 var BookContainer = React.createClass({
     select: function (event) {
         if (this.props.onSelect)
@@ -89,19 +103,24 @@ var PreviewList = React.createClass({
 });
 
 var Header = React.createClass({
+    sortHandler: function (criteria) {
+        if (this.props.sortHandler) 
+            this.props.sortHandler(criteria);
+    },
     render: function () {
         return (
             <div className="row top-row">
-              <div className="col-lg-6">
+              <div className="col-lg-9">
                 <h6 className="bevel">Book search</h6>
               </div>
+              <SortingHat sortHandler={this.sortHandler}/>
             </div>);
     }
 });
 
 var BookDetails = React.createClass({
     renderRating: function () {
-        var result = "", rating = this.props.ranking;
+        var result = "", rating = this.props.rating;
         for (var i = 0; i < 5; i++)
             result += i < rating ? "★" : "☆";
         return result;
@@ -114,8 +133,8 @@ var BookDetails = React.createClass({
     },
     render: function () {
         return (
-            <div className="col-lg-2">
-              <div className="row white">
+            <div className="col-lg-pull-4 no-padding">
+              <div className="row">
                 <h2>{this.props.title}</h2>
                 <h3>{this.props.subtitle}</h3>
                 {this.props.authors.map(function (author) {
@@ -171,7 +190,7 @@ var Plot = React.createClass({
 			},
 			yaxis: { ticks: 10, min: -2, max: 2, tickDecimals: 3 },
 			grid: {
-				backgroundColor: "#F7ECE9",
+				backgroundColor: "#EEE2E6",
 				borderWidth: { top: 4, right: 4, bottom: 4, left: 4 },
                 borderColor: "#A99C9A"
 			}
@@ -179,7 +198,7 @@ var Plot = React.createClass({
     },
     render: function () {
         return (
-            <div className="col-lg-6">
+            <div className="col-lg-12">
               <div className="row">
                 <div id="plot"></div>
               </div>
@@ -193,6 +212,36 @@ var Plot = React.createClass({
     componentDidMount: function () { this.renderPlot(); }
 });
 
+var GViewer = React.createClass({
+    getInitialState: function () { return { viewer: null }; },
+    initGapi: function () {
+        var that = this;
+        // If I don't use callback, this code will use document.write...
+        google.load("books", "0", { callback: _.identity });
+    },
+    render: function () {
+        return (
+            <div className="row plot-row">
+              <div id="gviewer-wrapper">
+                <div id="gviewer"/>
+              </div>
+            </div>);
+    },
+    componentDidMount: function () { this.initGapi(); },
+    loadFail: function (data) {
+        console.log("failed loading: " + this.props.selected);
+    },
+    loadSuccess: function (data) {
+        console.log("loaded: " + this.props.selected);
+    },
+    componentDidUpdate: function () {
+        var elt = $("#gviewer");
+        elt.empty();
+        var viewer = new google.books.DefaultViewer(elt.get(0));
+        viewer.load(this.props.selected, this.loadFail, this.loadSuccess);
+    }
+});
+
 var SearchBox = React.createClass({
     search: function () {
         var val = $("#search").val();
@@ -204,8 +253,8 @@ var SearchBox = React.createClass({
     },
     render: function () {
         return (
-            <div className="row bottom-row plot-column medium-dark">
-              <div className="col-lg-4 white">
+            <div className="row plot-row">
+              <div className="col-lg-10">
                 <div className="form-group pad-more">
                   <input type="text" 
                          className="form-control"
@@ -214,47 +263,65 @@ var SearchBox = React.createClass({
                          placeholder="Search for books"/>
                 </div>
               </div>
-              <div className="col-lg-1 white pad-more pad-two">
+              <div className="col-lg-2 white pad-more pad-two">
                 <button type="submit" 
                         id="submit"
                         className="btn btn-primary"
                         onClick={this.search}>Search</button>
               </div>
-              <div className="col-lg-4">
-                <h2 className="light-text">Statistics</h2>
-              </div>
-              <div className="col-lg-3"/>
             </div>);
     }
 });
 
-var GViewer = React.createClass({
-    getInitialState: function () { return { viewer: null }; },
-    initGapi: function () {
-        var that = this;
-        // If I don't use callback, this code will use document.write...
-        google.load("books", "0", { callback: _.identity });
+var ViewerPane = React.createClass({
+    searchHandler: function (data) {
+        if (this.props.searchHandler) this.props.searchHandler(data);
     },
     render: function () {
         return (
-            <div className="col-lg-3 white">
-              <div id="gviewer-wrapper">
-                <div id="gviewer"></div>
+            <div className="col-lg-5 white no-padding">
+              <SearchBox searchHandler={this.searchHandler}/>
+              <div className="row plot-row">
+                <div className="col-lg-8">
+                  <GViewer selected={this.props.selected}/>
+                </div>
+                  <BookDetails
+                    title={this.props.active.title}
+                    subtitle={this.props.active.subtitle}
+                    description={this.props.active.description}
+                    authors={this.props.active.authors}
+                    rating={this.props.active.averageRating}
+                    publisher={this.props.active.publisher}
+                    date={this.props.active.publishDate}
+                    isbn={this.props.active.industryIdentifiers[0].identifier}
+                    />
               </div>
             </div>);
+    }
+});
+
+var ContentPane = React.createClass({
+    searchHandler: function (data) {
+        if (this.props.searchHandler)
+            this.props.searchHandler(data);
     },
-    componentDidMount: function () { this.initGapi(); },
-    loadFail: function (data) {
-        console.log("failed loading: " + this.props.select);
-    },
-    loadSuccess: function (data) {
-        console.log("loaded: " + this.props.select);
-    },
-    componentDidUpdate: function () {
-        var elt = $("#gviewer");
-        elt.empty();
-        var viewer = new google.books.DefaultViewer(elt.get(0));
-        viewer.load(this.props.selected, this.loadFail, this.loadSuccess);
+    render: function () {
+        return (
+            <div className="row bottom-row light plot-row">
+              <ViewerPane
+                searchHandler={this.searchHandler}
+                selected={this.props.selected}
+                active={this.props.active}
+                />
+              <div className="col-lg-7 no-padding">
+                <div className="row plot-row medium-dark">
+                  <h2 className="light-text">Statistics</h2>
+                </div>
+                <div className="row plot-row">
+                  <Plot/>
+                </div>
+              </div>
+            </div>);
     }
 });
 
@@ -323,22 +390,11 @@ var BootstrapContainer = React.createClass({
                 previews={this.state.previews}
                 onSelect={this.onSelect}
                 />
-              <SearchBox searchHandler={this.searchHandler}/>
-              <div className="row bottom-row plot-column">
-                <GViewer selected={this.state.selected}/>
-                <BookDetails
-                  title={this.state.active.title}
-                  subtitle={this.state.active.subtitle}
-                  description={this.state.active.description}
-                  authors={this.state.active.authors}
-                  rating={this.state.active.averageRating}
-                  publisher={this.state.active.publisher}
-                  date={this.state.active.publishDate}
-                  isbn={this.state.active.industryIdentifiers[0].identifier}
-                  />
-                <Plot/>
-                <div className="col-lg-1"/>
-              </div>
+              <ContentPane
+                searchHandler={this.searchHandler}
+                selected={this.state.selected}
+                active={this.state.active}
+                />
             </div>
         );
     }

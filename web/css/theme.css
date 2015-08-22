@@ -5675,9 +5675,9 @@ body {
 
 .pad-two { padding-bottom: 2px }
 
-.plot-column { background-color: #F7ECE9; display: table }
+.plot-row { display: table; width: 100% }
 
-.plot-column [class*="col-"] {
+.plot-row [class*="col-"] {
     float: none;
     display: table-cell;
     vertical-align: top
@@ -5716,7 +5716,7 @@ body {
     border-radius: 0 !important;
 }
 
-.book-container { width: 254px }
+.book-container { width: 254px; margin-top: 16px; padding-left: 0 }
 
 .padded { padding-right: 100px }
 
@@ -5724,11 +5724,15 @@ body {
 
 .medium-dark { background-color: #A99C9A }
 
+.light { background-color: #EEE2E6 }
+
 .dark { background-color: #4C622B; color: #FFF }
 
-.light-text { color: #4C622B; text-align: right }
+.light-text { color: #4C622B; padding-left: 172px }
 
 .right-padded { padding-right: 16px }
+
+.no-padding { padding: 0 !important }
 
 img.desaturate {
     filter: grayscale(100%); 
@@ -5740,9 +5744,17 @@ img.desaturate:hover {
     -webkit-filter: grayscale(0%);
     opacity: 1 }
 
-p.description { padding-right: 6px }
+p.description { padding-right: 6px; margin-bottom: 32px }
 
 h4.author { padding-left: 48px }
+
+.sorting-hat { float: right; padding-top: 3px; padding-bottom: 4px; padding-right: 4px }
+
+.sorting-hat button { background-color: #7A8065; color: #EEE2E6 }
+
+.container-fluid { padding: 0; margin: 0 }
+
+.row { margin: 0 }
 
 /* min-height: 600px; min-width: 440px;  */
 #gviewer-wrapper {
@@ -5756,9 +5768,9 @@ h4.author { padding-left: 48px }
 
 #submit { margin-bottom: 14px }
 
-.left-padded, #plot { margin-left: 118px }
+.left-padded { margin-left: 154px }
 
 #plot {
     min-width: 580px; min-height: 400px; float: left;
-    margin-bottom: 12px; margin-top: 18px }
+    margin-bottom: 12px; margin-top: 18px; margin-left: 118px }
 #ranking { font-size: 24px }
