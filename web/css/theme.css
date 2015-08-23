@@ -5706,9 +5706,9 @@ body {
 
 .book-info { background-color: #569E36; border: 0 }
 
-.book-icon { width: 164px; padding: 0; margin: 0 }
+.book-icon { width: 154px; padding: 0; margin: 0; border: 0 }
 
-.book-icon-placeholder { width: 200px; height: 280px }
+.book-icon-placeholder { width: 164px; height: 280px; padding-left: 10px }
 
 .book-info * {
     -webkit-border-radius: 0 !important;
@@ -5771,6 +5771,6 @@ h4.author { padding-left: 48px }
 .left-padded { margin-left: 154px }
 
 #plot {
-    min-width: 580px; min-height: 400px; float: left;
+    min-width: 640px; min-height: 400px; float: left;
     margin-bottom: 12px; margin-top: 18px; margin-left: 118px }
 #ranking { font-size: 24px }

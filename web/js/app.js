@@ -49,7 +49,7 @@ var BookContainer = React.createClass({
         return (
             <div className="container book-container">
               <div className="row book">
-                <div className="col-lg-9 white">
+                <div className="col-lg-9 no-padding white">
                   <div className="book-icon-placeholder"
                        onClick={this.select}>
                     <img className="book-icon desaturate"
@@ -167,54 +167,55 @@ var BookDetails = React.createClass({
 
 var Plot = React.createClass({
     renderPlot: function () {
-        var d1 = [];
-		for (var i = 0; i < Math.PI * 2; i += 0.25)
-			d1.push([i, Math.sin(i)]);
+        if (this.props.data.bars.length) {
 
-		var d2 = [];
-		for (var i = 0; i < Math.PI * 2; i += 0.25)
-			d2.push([i, Math.cos(i)]);
-
-		var d3 = [];
-		for (var i = 0; i < Math.PI * 2; i += 0.1)
-			d3.push([i, Math.tan(i)]);
-
-		$.plot("#plot", [
-			{ label: "sin(x)", data: d1, color: "#5E664D" },
-			{ label: "cos(x)", data: d2 },
-			{ label: "tan(x)", data: d3 }
-		], {
-			series: {
-				lines: { show: true },
-				points: { show: true }
-			},
-			xaxis: {
-				ticks: [
-					0, [ Math.PI/2, "\u03c0/2" ], [ Math.PI, "\u03c0" ],
-					[ Math.PI * 3/2, "3\u03c0/2" ], [ Math.PI * 2, "2\u03c0" ]
-				]
-			},
-			yaxis: { ticks: 10, min: -2, max: 2, tickDecimals: 3 },
-			grid: {
-				backgroundColor: "#EEE2E6",
-				borderWidth: { top: 4, right: 4, bottom: 4, left: 4 },
-                borderColor: "#A99C9A"
-			}
-		});
+            $.plot("#plot", this.props.data.bars, {
+                series: {
+                    bars: {
+                        show: true,
+                        barWidth: 0.3,
+                        align: "center",
+                        lineWidth: 0,
+                        fill:.75
+                    }
+                },
+			    grid: {
+				    backgroundColor: "#EEE2E6",
+				    borderWidth: { top: 4, right: 4, bottom: 4, left: 4 },
+                    borderColor: "#A99C9A"
+			    },
+                xaxis: {
+                    labelWidth: 112,
+                    labelHeight: 112,
+                    reserveSpace: true,
+                    ticks: this.props.data.ticks
+                },
+                yaxis: {
+                    min: 1629,
+                    max: new Date().getFullYear()
+                }
+            });
+        } else { $("#plot").empty(); }
+    },
+    describe: function () {
+        if (this.props.data.bars.length)
+            return "Books found by the year they were published.";
+        return "";
     },
     render: function () {
         return (
             <div className="col-lg-12">
               <div className="row">
-                <div id="plot"></div>
+                <div id="plot"/>
               </div>
               <div className="row">
                 <div className="left-padded">
-                  <p>What kind of data is presented in this graph</p>
+                  <p>{this.describe()}</p>
                 </div>
               </div>
             </div>);
     },
+    componentDidUpdate: function () { this.renderPlot(); },
     componentDidMount: function () { this.renderPlot(); }
 });
 
@@ -315,7 +316,7 @@ var ContentPane = React.createClass({
                   <h2 className="light-text">Statistics</h2>
                 </div>
                 <div className="row plot-row">
-                  <Plot/>
+                  <Plot data={this.props.plotData}/>
                 </div>
               </div>
             </div>);
@@ -327,6 +328,8 @@ var BootstrapContainer = React.createClass({
         return {
             previews: [],
             selected: "",
+            startIndex: 0,
+            maxResults: 5,
             active: {
                 title: "", 
                 subtitle: "", 
@@ -338,8 +341,45 @@ var BootstrapContainer = React.createClass({
             }
         };
     },
-    testBubble: function (event) {
-        console.log("bubbled: " + event.data);
+    getTitle: function (x) { return (x.volumeInfo || {}).title; },
+    getDate: function (x) {
+        return new Date((x.volumeInfo || {}).publishedDate || "0-1-1");
+    },
+    sorters: function () {
+        function getPrice(x) {
+            return ((x.saleInfo || {}).listPrice || {})
+                .amount || Number.MAX_VALUE;
+        }
+        function byPrice(a, b) {
+            return getPrice(a) - getPrice(b);
+        }
+        var byDate = function (a, b) {
+            return this.getDate(a) - this.getDate(b);
+        }.bind(this);
+        var alphabetically = function (a, b) {
+            var ta = this.getTitle(a), tb = this.getTitle(b);
+            if (ta == tb) return 0;
+            if (ta > tb) return 1;
+            return -1;
+        }.bind(this);
+        return {
+            "by date": byDate,
+            "by price": byPrice,
+            "alphabetically": alphabetically
+        };
+    },
+    preparePlot: function () {
+        var result = {};
+        result.bars = this.state.previews.map(function (book, i) {
+            return {
+                color: book.volumeInfo == this.state.active ? "#4C622B" : "#7A8065",
+                data: [[i, parseInt((book.volumeInfo || {}).publishedDate || "0", 10)]]
+            };
+        }.bind(this));
+        result.ticks = this.state.previews.map(function (book, i) {
+            return [i, this.getTitle(book)];
+        }.bind(this));
+        return result;
     },
     repopulateList: function (data) {
         var pending = data.items || [],
@@ -365,42 +405,57 @@ var BootstrapContainer = React.createClass({
             if (!pending.length)
                 that.setState({ previews: loaded });
         }
+
+        function itemErrorHandler(item) {
+            pending.splice(pending.indexOf(item));
+            if (!pending.length)
+                that.setState({ previews: loaded });
+        }
+
         _.each(pending, function (item) {
             $.ajax("https://www.googleapis.com/books/v1/volumes/" + item.id)
             .done(_.partial(itemLoadHandler, item))
+            .fail(_.partial(itemErrorHandler, item))
             .fail(that.displayError);
-        });
+        }.bind(this));
     },
     displayError: function (error) {
         console.log("displaying error: " + error);
     },
+    updateIndex: function () {
+        this.setState({
+            startIndex: this.state.startIndex + this.state.maxResults
+        });
+    },
     initEvents: function () {
         var node = $(React.findDOMNode(this));
         node.on("select", function (event, data) {
-            this.setState({ 
-                selected: "http://books.google.co.il/books?id=" + 
-                  data.id + "&pg=PP1#v=onepage",
-                active: data.volumeInfo
-            });
+            if (data) {
+                this.setState({ 
+                    selected: "http://books.google.co.il/books?id=" + 
+                    data.id + "&pg=PP1#v=onepage",
+                    active: data.volumeInfo
+                });
+            }
         }.bind(this));
         node.on("search", function (event, query) {
-            this.props.maxResults = this.props.maxResults || 5;
-            this.props.startIndex =
-                (this.props.startIndex + this.props.maxResults) || 0;
             $.ajax({
                 url: "https://www.googleapis.com/books/v1/volumes",
                 dataType: "json",
                 data: {
                     q: query,
-                    startIndex: this.props.startIndex,
-                    maxResults: this.props.maxResults,
+                    startIndex: this.state.startIndex,
+                    maxResults: this.state.maxResults,
                 } })
             .done(this.repopulateList)
+            .done(this.updateIndex)
             .fail(this.displayError);
         }.bind(this));
         node.on("sort", function (event, criteria) {
-            console.log("sorting: " + criteria);
-        });
+            var books = this.state.previews.concat();
+            books.sort(this.sorters()[criteria]);
+            this.setState({ previews: books });
+        }.bind(this));
     },
     componentDidUpdate: function () { this.initEvents(); },
     componentDidMount: function () { this.initEvents(); },
@@ -415,6 +470,7 @@ var BootstrapContainer = React.createClass({
                 searchHandler={this.searchHandler}
                 selected={this.state.selected}
                 active={this.state.active}
+                plotData={this.preparePlot()}
                 />
             </div>
         );
