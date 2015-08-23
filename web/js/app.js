@@ -1,6 +1,10 @@
-'use strict';
+"use strict";
 
+/**
+ * BookInfoButton class (the small green button next to the book icon).
+ */
 var BookInfoButton = React.createClass({
+    
   render: function () {
       var btnClass = "btn btn-primary book-info";
       if (this.props.disabled) btnClass += " disabled";
@@ -12,7 +16,15 @@ var BookInfoButton = React.createClass({
   }
 });
 
+/**
+ * SortingHat class (the row of button to sort the preview list).
+ */
 var SortingHat = React.createClass({
+    
+    /**
+     * This function is called in response to user interacting
+     * with the sorting buttons.
+     */
     sort: function (event) {
         if (event.target != this.selected) {
             this.selected = event.target;
@@ -41,7 +53,15 @@ var SortingHat = React.createClass({
     }
 });
 
+/**
+ * BookContainer class (the box containing the entire book preview).
+ */
 var BookContainer = React.createClass({
+    
+    /**
+     * This function is called in response to user submitting the
+     * search query
+     */
     select: function (event) {
         $(React.findDOMNode(this)).trigger("select", this.props.data);
     },
@@ -77,7 +97,15 @@ var BookContainer = React.createClass({
     }
 });
 
+/**
+ * PreviewList class (the list of BookContainers).
+ */
 var PreviewList = React.createClass({
+    
+    /**
+     * This function is called in response to user submitting the
+     * search query
+     */
     formatPrice: function (listPrice) {
         switch ((listPrice || {}).currencyCode || "NA") {
         case "USD": return "$" + listPrice.amount;
@@ -112,6 +140,9 @@ var PreviewList = React.createClass({
     }
 });
 
+/**
+ * Header (the topmost row of the page).
+ */
 var Header = React.createClass({
     render: function () {
         return (
@@ -124,19 +155,38 @@ var Header = React.createClass({
     }
 });
 
+/**
+ * BookDetails class (displays the information for selected book).
+ */
 var BookDetails = React.createClass({
+    
+    /**
+     * This function produces a row of five stars.  Stars are filled
+     * if they closer to the left side of the row than the rating of the
+     * book and hollow otherwise.  The rating is rounded up.
+     */
     renderRating: function () {
         var result = "", rating = this.props.rating;
         for (var i = 0; i < 5; i++)
             result += i < rating ? "★" : "☆";
         return result;
     },
+    
+    /**
+     * This function produces ISBN.
+     */
     formatISBN: function () {
         return this.props.isbn ? "ISBN: " + this.props.isbn : "";
     },
+
+    /**
+     * This function produces description for the book (note, this
+     * will create HTML from the description we've received from elsewhere).
+     */
     createDescription: function () {
         return { __html: this.props.description };
     },
+    
     render: function () {
         return (
             <div className="col-lg-pull-4 no-padding">
@@ -165,7 +215,14 @@ var BookDetails = React.createClass({
     }
 });
 
+/**
+ * Plot class (this class renders the Flot applet).
+ */
 var Plot = React.createClass({
+
+    /**
+     * Actually render the plot.
+     */
     renderPlot: function () {
         if (this.props.data.bars.length) {
 
@@ -197,11 +254,16 @@ var Plot = React.createClass({
             });
         } else { $("#plot").empty(); }
     },
+
+    /**
+     * Generate description for the plot.
+     */
     describe: function () {
         if (this.props.data.bars.length)
             return "Books found by the year they were published.";
         return "";
     },
+    
     render: function () {
         return (
             <div className="col-lg-12">
@@ -216,16 +278,26 @@ var Plot = React.createClass({
             </div>);
     },
     componentDidUpdate: function () { this.renderPlot(); },
+    
     componentDidMount: function () { this.renderPlot(); }
 });
 
+/**
+ * GViewer class (creates and manages the Google Book Viewer component).
+ */
 var GViewer = React.createClass({
+
     getInitialState: function () { return { viewer: null }; },
+
+    /**
+     * Fetches the JavaScript required to run Google Book Viewer.
+     */
     initGapi: function () {
         var that = this;
         // If I don't use callback, this code will use document.write...
         google.load("books", "0", { callback: _.identity });
     },
+    
     render: function () {
         return (
             <div className="row plot-row">
@@ -234,13 +306,25 @@ var GViewer = React.createClass({
               </div>
             </div>);
     },
+    
     componentDidMount: function () { this.initGapi(); },
+
+    /**
+     * Nothing interesting here yet.  I'm not sure we are at all interested
+     * to know about little misfortunes the viewer encounters.
+     */
     loadFail: function (data) {
         console.log("failed loading: " + this.props.selected);
     },
+
+    /**
+     * Nothing interesting here yet.  For some reason the viewer may
+     * sometimes refuse to work unless given a callback.
+     */
     loadSuccess: function (data) {
         console.log("loaded: " + this.props.selected);
     },
+    
     componentDidUpdate: function () {
         var elt = $("#gviewer");
         elt.empty();
@@ -249,14 +333,28 @@ var GViewer = React.createClass({
     }
 });
 
+/**
+ * SearchBox class (displays the search input and the button).
+ */
 var SearchBox = React.createClass({
+    
+    /**
+     * This function is called in response to user interacting with the
+     * search box.
+     */
     search: function () {
         var val = $("#search").val();
         if (val) $(React.findDOMNode(this)).trigger("search", val);
     },
+    
+    /**
+     * This function is called when users type anything into the
+     * search input control.
+     */
     keyup: function (event) {
         if (event.which == 13) this.search();
     },
+    
     render: function () {
         return (
             <div className="row plot-row">
@@ -279,7 +377,12 @@ var SearchBox = React.createClass({
     }
 });
 
+/**
+ * ViewerPane class (generates the white box containing the search box
+ * and the Google Viewer control).
+ */
 var ViewerPane = React.createClass({
+    
     render: function () {
         return (
             <div className="col-lg-5 white no-padding">
@@ -303,7 +406,12 @@ var ViewerPane = React.createClass({
     }
 });
 
+/**
+ * ContentPane class (generates the entire middle section of the page,
+ * including the ViewerPane and the Plot).
+ */
 var ContentPane = React.createClass({
+    
     render: function () {
         return (
             <div className="row bottom-row light plot-row">
@@ -323,7 +431,13 @@ var ContentPane = React.createClass({
     }
 });
 
+/**
+ * BootstrapContainer class (the top-level component).
+ * This class is responsible for everything that happens inside this 
+ * application.
+ */
 var BootstrapContainer = React.createClass({
+    
     getInitialState: function() {
         return {
             previews: [],
@@ -341,10 +455,23 @@ var BootstrapContainer = React.createClass({
             }
         };
     },
+    
+    /**
+     * Extracts the title from book description.
+     */
     getTitle: function (x) { return (x.volumeInfo || {}).title; },
+    
+    /**
+     * Extracts the publishing date from book description.
+     */
     getDate: function (x) {
         return new Date((x.volumeInfo || {}).publishedDate || "0-1-1");
     },
+
+    /**
+     * Generates sorters corresponding to the buttons sitting inside
+     * the SortingHat.
+     */
     sorters: function () {
         function getPrice(x) {
             return ((x.saleInfo || {}).listPrice || {})
@@ -368,6 +495,10 @@ var BootstrapContainer = React.createClass({
             "alphabetically": alphabetically
         };
     },
+
+    /**
+     * Prepares the data we need to feed to the Plot component.
+     */
     preparePlot: function () {
         var result = {};
         result.bars = this.state.previews.map(function (book, i) {
@@ -381,6 +512,10 @@ var BootstrapContainer = React.createClass({
         }.bind(this));
         return result;
     },
+
+    /**
+     * Loads the previews for each book returned from the search results.
+     */
     repopulateList: function (data) {
         var pending = data.items || [],
             loaded = [], that = this;
@@ -419,14 +554,29 @@ var BootstrapContainer = React.createClass({
             .fail(that.displayError);
         }.bind(this));
     },
+
+    /**
+     * All errors that happen inside this application will be handled here.
+     */
     displayError: function (error) {
         console.log("displaying error: " + error);
     },
+    
+    /**
+     * The (non-existing so far) pagination will happen here.
+     */
     updateIndex: function () {
         this.setState({
             startIndex: this.state.startIndex + this.state.maxResults
         });
     },
+
+    /**
+     * Unfortunately, React's own events aren't usable, this is why we
+     * need to subscribe to events we dispatch somewhere down the DOM
+     * tree here, as soon as possible.
+     * BUG: It seems like we may accidentally subscribe multiple times.
+     */
     initEvents: function () {
         var node = $(React.findDOMNode(this));
         node.on("select", function (event, data) {
@@ -457,8 +607,11 @@ var BootstrapContainer = React.createClass({
             this.setState({ previews: books });
         }.bind(this));
     },
+    
     componentDidUpdate: function () { this.initEvents(); },
+    
     componentDidMount: function () { this.initEvents(); },
+    
     render: function () {
         return (
             <div className="container-fluid">

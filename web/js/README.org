@@ -1,0 +1,39 @@
+* Installing
+  The project is hosted at Github, clone the repository and run =bower=
+  to fetch dependencies.
+  #+begin_src sh
+    git clone https://github.com/wvxvw/madlan-test-assignment.git
+    sudo npm install -g bower
+    cd ./madlan-test-assignment
+    bower install
+  #+end_src
+  =bower= tool should create the =bower_components= directory.  This project
+  depends on Twitter Bootstrap, Flot, JQuery, React and Underscore libraries.
+
+  In case you cannot run bower, you will need to fetch all those projects on
+  your own.  Below is the list of repositories:
+
+  #+begin_src sh
+    mkdir bower_components
+    cd bower_components
+    git clone git://github.com/twbs/bootstrap.git
+    git clone git://github.com/jquery/jquery.git
+    git clone git://github.com/flot/flot.git
+    git clone git://github.com/facebook/react-bower.git
+    git clone git://github.com/jashkenas/underscore.git
+  #+end_src
+
+* Running
+  The project comes with a minimal HTTP server for testing.  To
+  run the server:
+  #+begin_src sh
+    cd ./server
+    ./dev-server.py
+  #+end_src
+  See =dev-server.py --help= for additional options.
+
+  After you started the server, the project will be accessbile at
+  http://locahost:8080.
+
+* Note
+  /There is a quota for how many times you can use Google Book API./
