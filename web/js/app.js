@@ -1,7 +1,7 @@
 'use strict';
 
 var BookInfoButton = React.createClass({
-  render: function() {
+  render: function () {
       var btnClass = "btn btn-primary book-info";
       if (this.props.disabled) btnClass += " disabled";
 
@@ -13,13 +13,28 @@ var BookInfoButton = React.createClass({
 });
 
 var SortingHat = React.createClass({
+    sort: function (event) {
+        if (event.target != this.selected) {
+            this.selected = event.target;
+            $(React.findDOMNode(this)).trigger(
+                "sort", $(event.target).text());
+        }
+    },
     render: function () {
+        function makeLabels (sort) {
+            return ["by price", "by date", "alphabetically"].map(
+                function (label) {
+                    return (
+                        <button
+                          type="button"
+                          onClick={sort}
+                          className="btn btn-sm">{label}</button>);
+                })
+        }
         return (
             <div className="col-pull-lg-3">
               <div className="btn-group sorting-hat">
-                <button type="button" className="btn btn-sm">by price</button>
-                <button type="button" className="btn btn-sm">by date</button>
-                <button type="button" className="btn btn-sm">alphabetically</button>
+                {makeLabels(this.sort)}
               </div>
             </div>
         );
@@ -28,8 +43,7 @@ var SortingHat = React.createClass({
 
 var BookContainer = React.createClass({
     select: function (event) {
-        if (this.props.onSelect)
-            this.props.onSelect(this.props.data);
+        $(React.findDOMNode(this)).trigger("select", this.props.data);
     },
     render: function () {
         return (
@@ -73,9 +87,6 @@ var PreviewList = React.createClass({
         default: return listPrice.amount + " " + listPrice.currencyCode;
         }
     },
-    onSelect: function (data) {
-        if (this.props.onSelect) this.props.onSelect(data);
-    },
     render: function () {
         var that = this;
         return (
@@ -91,7 +102,6 @@ var PreviewList = React.createClass({
                              pdf={data.accessInfo.pdf.isAvailable}
                              price={that.formatPrice(data.saleInfo.listPrice)}
                              data={data}
-                             onSelect={that.onSelect}
                           />
                         </li>
                     );
@@ -103,17 +113,13 @@ var PreviewList = React.createClass({
 });
 
 var Header = React.createClass({
-    sortHandler: function (criteria) {
-        if (this.props.sortHandler) 
-            this.props.sortHandler(criteria);
-    },
     render: function () {
         return (
             <div className="row top-row">
               <div className="col-lg-9">
                 <h6 className="bevel">Book search</h6>
               </div>
-              <SortingHat sortHandler={this.sortHandler}/>
+              <SortingHat/>
             </div>);
     }
 });
@@ -245,8 +251,7 @@ var GViewer = React.createClass({
 var SearchBox = React.createClass({
     search: function () {
         var val = $("#search").val();
-        if (val && this.props.searchHandler)
-            this.props.searchHandler(val);
+        if (val) $(React.findDOMNode(this)).trigger("search", val);
     },
     keyup: function (event) {
         if (event.which == 13) this.search();
@@ -274,13 +279,10 @@ var SearchBox = React.createClass({
 });
 
 var ViewerPane = React.createClass({
-    searchHandler: function (data) {
-        if (this.props.searchHandler) this.props.searchHandler(data);
-    },
     render: function () {
         return (
             <div className="col-lg-5 white no-padding">
-              <SearchBox searchHandler={this.searchHandler}/>
+              <SearchBox/>
               <div className="row plot-row">
                 <div className="col-lg-8">
                   <GViewer selected={this.props.selected}/>
@@ -301,15 +303,10 @@ var ViewerPane = React.createClass({
 });
 
 var ContentPane = React.createClass({
-    searchHandler: function (data) {
-        if (this.props.searchHandler)
-            this.props.searchHandler(data);
-    },
     render: function () {
         return (
             <div className="row bottom-row light plot-row">
               <ViewerPane
-                searchHandler={this.searchHandler}
                 selected={this.props.selected}
                 active={this.props.active}
                 />
@@ -341,13 +338,30 @@ var BootstrapContainer = React.createClass({
             }
         };
     },
+    testBubble: function (event) {
+        console.log("bubbled: " + event.data);
+    },
     repopulateList: function (data) {
         var pending = data.items || [],
             loaded = [], that = this;
+
+        function normalize(data) {
+            return $.extend(true, {
+                volumeInfo: {
+                    imageLinks: { thumbnail: "" },
+                    country: "NA",
+                    industryIdentifiers: [{}]
+                },
+                accessInfo: {
+                    epub: { isAvailable: false },
+                    pdf: { isAvailable: false }
+                }
+            }, data);
+        };
         
         function itemLoadHandler(item, data) {
             pending.splice(pending.indexOf(item));
-            loaded.push(data);
+            loaded.push(normalize(data));
             if (!pending.length)
                 that.setState({ previews: loaded });
         }
@@ -360,35 +374,42 @@ var BootstrapContainer = React.createClass({
     displayError: function (error) {
         console.log("displaying error: " + error);
     },
-    searchHandler: function (query) {
-        console.log("searching for: " + query);
-        this.props.maxResults = this.props.maxResults || 5;
-        this.props.startIndex = (this.props.startIndex + this.props.maxResults) || 0;
-        $.ajax({
-            url: "https://www.googleapis.com/books/v1/volumes",
-            dataType: "json",
-            data: {
-                q: query,
-                startIndex: this.props.startIndex,
-                maxResults: this.props.maxResults,
-            } })
-        .done(this.repopulateList)
-        .fail(this.displayError);
-    },
-    onSelect: function (data) {
-        this.setState({ 
-            selected: "http://books.google.co.il/books?id=" + 
-              data.id + "&pg=PP1#v=onepage",
-            active: data.volumeInfo
+    initEvents: function () {
+        var node = $(React.findDOMNode(this));
+        node.on("select", function (event, data) {
+            this.setState({ 
+                selected: "http://books.google.co.il/books?id=" + 
+                  data.id + "&pg=PP1#v=onepage",
+                active: data.volumeInfo
+            });
+        }.bind(this));
+        node.on("search", function (event, query) {
+            this.props.maxResults = this.props.maxResults || 5;
+            this.props.startIndex =
+                (this.props.startIndex + this.props.maxResults) || 0;
+            $.ajax({
+                url: "https://www.googleapis.com/books/v1/volumes",
+                dataType: "json",
+                data: {
+                    q: query,
+                    startIndex: this.props.startIndex,
+                    maxResults: this.props.maxResults,
+                } })
+            .done(this.repopulateList)
+            .fail(this.displayError);
+        }.bind(this));
+        node.on("sort", function (event, criteria) {
+            console.log("sorting: " + criteria);
         });
     },
+    componentDidUpdate: function () { this.initEvents(); },
+    componentDidMount: function () { this.initEvents(); },
     render: function () {
         return (
             <div className="container-fluid">
               <Header/>
               <PreviewList 
                 previews={this.state.previews}
-                onSelect={this.onSelect}
                 />
               <ContentPane
                 searchHandler={this.searchHandler}
