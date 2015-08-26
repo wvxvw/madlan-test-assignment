@@ -476,22 +476,27 @@ var ContentPane = React.createClass({
  * application.
  */
 var BootstrapContainer = React.createClass({
+    
     mixins: [ModalMixin],
-    getInitialState: function() {
+
+    defaultActive: function () {
+        return {
+            title: "", 
+            subtitle: "", 
+            authors: [], 
+            averageRating: 0,
+            publisher: "",
+            publishDate: "",
+            industryIdentifiers: [{ identifier: "" }]
+        };
+    },
+    getInitialState: function () {
         return {
             previews: [],
             selected: "",
             startIndex: 0,
             maxResults: 5,
-            active: {
-                title: "", 
-                subtitle: "", 
-                authors: [], 
-                averageRating: 0,
-                publisher: "",
-                publishDate: "",
-                industryIdentifiers: [{ identifier: "" }]
-            }
+            active: this.defaultActive()
         };
     },
     
@@ -639,6 +644,11 @@ var BootstrapContainer = React.createClass({
             .done(this.repopulateList)
             .done(this.updateIndex)
             .fail(this.displayError);
+            this.setState({
+                active: this.defaultActive(),
+                selected: "",
+                previews: []
+            });
         }.bind(this));
         node.on("sort", function (event, criteria) {
             var books = this.state.previews.concat();
