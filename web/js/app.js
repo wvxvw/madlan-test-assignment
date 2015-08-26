@@ -228,16 +228,24 @@ var Plot = React.createClass({
      * Actually render the plot.
      */
     renderPlot: function () {
+        function rhombus(ctx, x, y, radius, shadow) {
+            ctx.moveTo(x - radius, y);
+            ctx.lineTo(x, y - radius);
+            ctx.lineTo(x + radius, y);
+            ctx.lineTo(x, y + radius);
+            ctx.lineTo(x - radius, y);
+        }
         if (this.props.data.bars.length) {
 
             $.plot("#plot", this.props.data.bars, {
                 series: {
-                    bars: {
-                        show: true,
-                        barWidth: 0.3,
-                        align: "center",
+                    points: {
+                        radius: 10,
                         lineWidth: 0,
-                        fill:.75
+                        show: true,
+                        fill: 0.9,
+                        symbol: rhombus,
+                        fillColor: false
                     }
                 },
 			    grid: {
@@ -252,8 +260,8 @@ var Plot = React.createClass({
                     ticks: this.props.data.ticks
                 },
                 yaxis: {
-                    min: 1629,
-                    max: new Date().getFullYear()
+                    min: this.props.data.range[0],
+                    max: this.props.data.range[1]
                 }
             });
         } else { $("#plot").empty(); }
@@ -531,16 +539,18 @@ var BootstrapContainer = React.createClass({
      * Prepares the data we need to feed to the Plot component.
      */
     preparePlot: function () {
-        var result = {};
+        var result = {}, data;
         result.bars = this.state.previews.map(function (book, i) {
             return {
-                color: book.volumeInfo == this.state.active ? "#4C622B" : "#7A8065",
+                color: book.volumeInfo == this.state.active ? "#634A80" : "#7A8065",
                 data: [[i, parseInt((book.volumeInfo || {}).publishedDate || "0", 10)]]
             };
         }.bind(this));
         result.ticks = this.state.previews.map(function (book, i) {
             return [i, this.getTitle(book)];
         }.bind(this));
+        data = _.pluck(_.pluck(_.pluck(result.bars, "data"), 0), 1);
+        result.range = [_.min(data), _.max(data)];
         return result;
     },
 
