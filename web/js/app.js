@@ -1,3 +1,5 @@
+/* globals React, $, console */
+
 "use strict";
 
 /**
@@ -37,11 +39,11 @@ var SortingHat = React.createClass({
             return ["by price", "by date", "alphabetically"].map(
                 function (label) {
                     return (
-                        <button
+                        <button key={label}
                           type="button"
                           onClick={sort}
                           className="btn btn-sm">{label}</button>);
-                })
+                });
         }
         return (
             <div className="col-pull-lg-3">
@@ -67,33 +69,35 @@ var BookContainer = React.createClass({
     },
     render: function () {
         return (
-            <div className="container book-container">
-              <div className="row book">
-                <div className="col-lg-9 no-padding white">
-                  <div className="book-icon-placeholder"
-                       onClick={this.select}>
-                    <img className="book-icon desaturate"
-                         src={this.props.thumb}/>
+            <li>
+              <div className="container book-container">
+                <div className="row book">
+                  <div className="col-lg-9 no-padding white">
+                    <div className="book-icon-placeholder"
+                         onClick={this.select}>
+                      <img className="book-icon desaturate"
+                           src={this.props.thumb}/>
+                    </div>
                   </div>
-                </div>
-                <div className="col-pull-lg-1">
-                  <div className="book-info">
-                    <div className="btn-group-vertical">
-                      <div className="book-info">
-                        <div className="btn-group-vertical">
-                          <BookInfoButton label={this.props.country}/>
-                          <BookInfoButton label={this.props.price}/>
-                          <BookInfoButton label="EPUB"
-                            disabled={this.props.epub}/>
-                          <BookInfoButton label="PDF"
-                            disabled={this.props.pdf}/>
+                  <div className="col-pull-lg-1">
+                    <div className="book-info">
+                      <div className="btn-group-vertical">
+                        <div className="book-info">
+                          <div className="btn-group-vertical">
+                            <BookInfoButton label={this.props.country}/>
+                            <BookInfoButton label={this.props.price}/>
+                            <BookInfoButton label="EPUB"
+                              disabled={this.props.epub}/>
+                            <BookInfoButton label="PDF"
+                              disabled={this.props.pdf}/>
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>);
+            </li>);
     }
 });
 
@@ -123,7 +127,7 @@ var PreviewList = React.createClass({
                 <ul className="list-inline">
                   {this.props.previews.map(function (data) {
                     return (
-                        <li><BookContainer
+                        <BookContainer key={data.id}
                              thumb={data.volumeInfo.imageLinks.thumbnail}
                              country={data.saleInfo.country}
                              epub={data.accessInfo.epub.isAvailable}
@@ -131,7 +135,6 @@ var PreviewList = React.createClass({
                              price={that.formatPrice(data.saleInfo.listPrice)}
                              data={data}
                           />
-                        </li>
                     );
                   })}
                 </ul>
@@ -194,7 +197,8 @@ var BookDetails = React.createClass({
                 <h2>{this.props.title}</h2>
                 <h3>{this.props.subtitle}</h3>
                 {this.props.authors.map(function (author) {
-                    return <h4 className="author">{author}</h4>;
+                    return <h4 key={author}
+                             className="author">{author}</h4>;
                 })}
                 <p className="description"
                    dangerouslySetInnerHTML={this.createDescription()}/>
@@ -282,11 +286,36 @@ var Plot = React.createClass({
     componentDidMount: function () { this.renderPlot(); }
 });
 
+var ModalMixin = {
+    show: function (message) {
+        React.render((
+            <div className="modal-body">
+              <div className="alert alert-danger">
+                <div className="row">
+                  <div className="col-lg-8">
+                    <p className="danger">{message}</p>
+                  </div>
+                  <div className="col-lg-4">
+                    <button type="button" className="btn"
+                        onClick={this.hide}>Dismiss</button>
+                  </div>
+                </div>
+              </div>
+            </div>),
+            $("#message").modal("show").get(0));
+    },
+    hide: function () {
+        React.unmountComponentAtNode($("#message").modal("hide").get(0));
+    }
+};
+
 /**
  * GViewer class (creates and manages the Google Book Viewer component).
  */
 var GViewer = React.createClass({
 
+    mixins: [ModalMixin],
+    
     getInitialState: function () { return { viewer: null }; },
 
     /**
@@ -314,7 +343,9 @@ var GViewer = React.createClass({
      * to know about little misfortunes the viewer encounters.
      */
     loadFail: function (data) {
-        console.log("failed loading: " + this.props.selected);
+        if (this.props.selected) 
+            this.show("Google Book Viewer Failed to load: " +
+                this.props.selected);
     },
 
     /**
@@ -437,7 +468,7 @@ var ContentPane = React.createClass({
  * application.
  */
 var BootstrapContainer = React.createClass({
-    
+    mixins: [ModalMixin],
     getInitialState: function() {
         return {
             previews: [],
@@ -558,9 +589,7 @@ var BootstrapContainer = React.createClass({
     /**
      * All errors that happen inside this application will be handled here.
      */
-    displayError: function (error) {
-        console.log("displaying error: " + error);
-    },
+    displayError: function (error) { this.show(error); },
     
     /**
      * The (non-existing so far) pagination will happen here.
@@ -595,7 +624,7 @@ var BootstrapContainer = React.createClass({
                 data: {
                     q: query,
                     startIndex: this.state.startIndex,
-                    maxResults: this.state.maxResults,
+                    maxResults: this.state.maxResults
                 } })
             .done(this.repopulateList)
             .done(this.updateIndex)

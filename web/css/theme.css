@@ -5756,6 +5756,12 @@ h4.author { padding-left: 48px }
 
 .row { margin: 0 }
 
+.left-padded { margin-left: 154px }
+
+.alert-danger .btn { display: inline-block; float: right; padding-right: 16px }
+
+.modal-body { margin: 30% }
+
 /* min-height: 600px; min-width: 440px;  */
 #gviewer-wrapper {
     padding-left: 8px; marign-right: 20px; margin-top: 24px; margin-bottom: 12px
@@ -5768,9 +5774,9 @@ h4.author { padding-left: 48px }
 
 #submit { margin-bottom: 14px }
 
-.left-padded { margin-left: 154px }
-
 #plot {
     min-width: 640px; min-height: 400px; float: left;
     margin-bottom: 12px; margin-top: 18px; margin-left: 118px }
 #ranking { font-size: 24px }
+
+#message { display: none }
