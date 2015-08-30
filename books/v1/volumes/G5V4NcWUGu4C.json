@@ -1,0 +1,69 @@
+{
+    "kind": "books#volume",
+    "id": "G5V4NcWUGu4C",
+    "etag": "zgM+2I5unEc",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/G5V4NcWUGu4C",
+    "volumeInfo": {
+        "title": "Barron's SAT Subject Test in Literature",
+        "authors": [
+            "Christina Myers-Shaffer"
+        ],
+        "publisher": "Barron's Educational Series",
+        "publishedDate": "2008",
+        "description": "Updated to reflect the latest subject tests in literature, this manual presents seven full-length practice tests, and two diagnostic tests. Also included is reference and review material to help students develop critical skills, analyze works of literature, and write papers on literary topics.",
+        "industryIdentifiers": [
+            {
+                "type": "ISBN_10",
+                "identifier": "0764192779"
+            },
+            {
+                "type": "ISBN_13",
+                "identifier": "9780764192777"
+            }
+        ],
+        "readingModes": {
+            "text": false,
+            "image": true
+        },
+        "pageCount": 402,
+        "printedPageCount": 404,
+        "printType": "BOOK",
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "preview-1.0.0",
+        "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=G5V4NcWUGu4C&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE72_KKQpboPpVj8DlGYLnNcYQRtQacx7s3iyasb7oxsTllkQgTYGmptBCwqlP8wJA3SWmlnpvS0ApWC9T95RN1ek58AZXDxLvG8jMFQut5if-Q1GaASdfMOHjuse8qfVeDbrVBzh&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=G5V4NcWUGu4C&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71W1ozK3BubVgVSg-s5Is_VbBbYgQdoe9kRPN3jm799aQPCulYokXAONdveB3L7F_HWrQn2_TPUBfgxr3PE2QZR_Xwj-PVDSM5CPyF9FizNiqrbkWDJ7wmAyKjISzEg9rxEMLqI&source=gbs_api",
+            "small": "http://books.google.com/books/content?id=G5V4NcWUGu4C&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE71xgeShQGxdCWUIgTBkqTVW9L7ESl4ifFQDEf9vD4XP-6lh_noXrPSrEzx-Dr5NWdwc7vvR_srQz3LV_vlt-IyKbKCFYISC8bn06N3io-U3BHiuMQG1-c0aBulbElgVb9FPbjOk&source=gbs_api",
+            "medium": "http://books.google.com/books/content?id=G5V4NcWUGu4C&printsec=frontcover&img=1&zoom=3&edge=curl&imgtk=AFLRE71H1cY439YM81HFlkXVWXfD9QkndlNY5aNm8Qy8eooiA00ZUmVhsLZb9NJM7mwHJd9xke6h4JKC5CT638jYyvD_uw-YM19rqX_CpTtPMIVnbLDV2S9XIi2taHu9nCDmW0w7MpY5&source=gbs_api",
+            "large": "http://books.google.com/books/content?id=G5V4NcWUGu4C&printsec=frontcover&img=1&zoom=4&edge=curl&imgtk=AFLRE71dfvU4Hg6qfoggUICsvOFBQcZEsy1l5bn2Btn3BXq6dynKiyfIPOyo2i6WhDxCOdpbFN8IA1s55vGtfjabk5cJS39LPDCrgPL3VDgqq_jJKWbFlLrCwSiaef1aqWYfJu-Ial8W&source=gbs_api",
+            "extraLarge": "http://books.google.com/books/content?id=G5V4NcWUGu4C&printsec=frontcover&img=1&zoom=6&edge=curl&imgtk=AFLRE71qRnh1eBqhkhaaOOMFSsUEAIHAokoz0PsUuS-3FCt1KKVxn9ffbSGnHxYzfPacRzfLu5rlJbolpB2Jld8TDDR0T62C0HDpN8wv9fsrp9gqrVI_q5E6pobAdU3LSYAf2kcO4jwO&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=G5V4NcWUGu4C&hl=&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=G5V4NcWUGu4C&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.com/books/about/Barron_s_SAT_Subject_Test_in_Literature.html?hl=&id=G5V4NcWUGu4C"
+    },
+    "saleInfo": {
+        "country": "IL",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+    },
+    "accessInfo": {
+        "country": "IL",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+            "isAvailable": false
+        },
+        "pdf": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.com/books/download/Barron_s_SAT_Subject_Test_in_Literature-sample-pdf.acsm?id=G5V4NcWUGu4C&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "webReaderLink": "http://books.google.com/books/reader?id=G5V4NcWUGu4C&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+    }
+}

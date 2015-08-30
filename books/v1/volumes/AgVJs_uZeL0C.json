@@ -1,0 +1,87 @@
+{
+    "kind": "books#volume",
+    "id": "AgVJs_uZeL0C",
+    "etag": "SJcot46ubvE",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/AgVJs_uZeL0C",
+    "volumeInfo": {
+        "title": "Addressing Test Anxiety in a High-Stakes Environment",
+        "subtitle": "Strategies for Classrooms and Schools",
+        "authors": [
+            "Gregory J. Cizek",
+            "Samantha S. Burg"
+        ],
+        "publisher": "Corwin Press",
+        "publishedDate": "2006",
+        "description": "In an era of high-stakes testing and accountability, improving exam results is at the top of most teachers' to-do lists.\u003c/p\u003e\u003cp\u003e \u003c/p\u003e\u003cp\u003eTest anxiety is prompted by situations in which people feel they are being personally evaluated, resulting in cognitive and physical responses. Cizek and Burg use their considerable experience as assessment experts and former classroom teachers to help teachers both understand what test anxiety is and how they can help their students overcome it. \u003c/p\u003e\u003cp\u003e \u003c/p\u003e\u003cp\u003eThe use of high-stakes testing has increased throughout the country, and testing results are often linked to consequences for the school, the teacher, and the student. With the growing prevalence in high-stakes tests, the level of test anxiety in both students and teachers has increased as well. If educators do not address test anxiety, it can have devastating effects on their students' test scores, confidence, and motivation to learn. In addition, test anxiety affects test results and the validity of tests. As a result, instructional decisions, promotion or graduation decisions, may be faulty because of test anxiety. \u003c/p\u003e\u003cp\u003e \u003c/p\u003e\u003cp\u003eThis practical guidebook contains:\u003c/p\u003e\u003cp\u003e- A glossary of assessment and measurement terms \u003c/p\u003e\u003cp\u003e- Suggestions for teachers, administrators, school systems, parents, and students on how to control test anxiety \u003c/p\u003e\u003cp\u003e- Situations where test anxiety can be helpful \u003c/p\u003e\u003cp\u003e- Current research findings on how widespread test anxiety is and which students it is most likely to affect \u003c/p\u003e\u003cp\u003e \u003c/p\u003e\u003cp\u003eThe authors include practical interventions that address students' behavioural and cognitive needs. They also include practical strategies such as study skills and test-staking skills that can help reduce the effects of test anxiety.",
+        "industryIdentifiers": [
+            {
+                "type": "ISBN_10",
+                "identifier": "1412908906"
+            },
+            {
+                "type": "ISBN_13",
+                "identifier": "9781412908900"
+            }
+        ],
+        "readingModes": {
+            "text": true,
+            "image": true
+        },
+        "pageCount": 178,
+        "printedPageCount": 192,
+        "dimensions": {
+            "height": "26.00 cm",
+            "width": "17.80 cm",
+            "thickness": "1.30 cm"
+        },
+        "printType": "BOOK",
+        "categories": [
+            "Education / Testing & Measurement"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.0.1.0.preview.3",
+        "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=AgVJs_uZeL0C&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE72Mv75t773u0N2xptU4aM_yncn7OC6sURhFU0dl5HJoNf_bD37qW0Pa0Z39fZJHrVaCJwhe4d71iDfIdOy8ZYsZ5ueDPfnwvIOfvqBib_W9YvAa62IqCEykgi8la4RdV4RoOOux&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=AgVJs_uZeL0C&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE72w_-r40tuHq6-tyl8SWGnopc9mWOyY4UpDfvr6D4ns4j82IMhYuCElwJemiHMbu7IUzDkgReS6UhSqqHG0wK78bUQ_QDavLurmtS-ZORhSqiWNCrisEkFWYp1m3w1xutIFG58w&source=gbs_api",
+            "small": "http://books.google.com/books/content?id=AgVJs_uZeL0C&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE72G9ZBYvosjIRGb19qPqDQksCRFJTslceZuFoBq01WdAWJabRXjTVgDYw0JIVh4TETQEaA2-AHiNC1yf6DmFwSycS4-QgxeqIPTDgNOzUmL4HGh3pkca-0Zm-XqaZZuYo4X8gb_&source=gbs_api",
+            "medium": "http://books.google.com/books/content?id=AgVJs_uZeL0C&printsec=frontcover&img=1&zoom=3&edge=curl&imgtk=AFLRE710bWNcOHS1b7A8twEJfCi_sn6nBoazpDUGx-uS6S69h_1QzsCpcL1DvKb3XXWeCkGm3l9Xj8_apbZdyZh5eS6I0H8rEc6Vs0i5IclHkfcLjX_a1FZsMMUJE4lkWQE7MbT2tLy1&source=gbs_api",
+            "large": "http://books.google.com/books/content?id=AgVJs_uZeL0C&printsec=frontcover&img=1&zoom=4&edge=curl&imgtk=AFLRE71MB4AJzJweTT53squLUZp4f-Fhbnxc7LFQNYW0ZCGjGwCV2IK4I-eWIxBYyzzIO81J8SqJLxmhnqQkUNlAfNG42qF8S5AXvcnvYBoV3HA_QHCOlIa4-9EzcQ9SpqBImPTOyeAP&source=gbs_api",
+            "extraLarge": "http://books.google.com/books/content?id=AgVJs_uZeL0C&printsec=frontcover&img=1&zoom=6&edge=curl&imgtk=AFLRE72NdiLF7Jp8N4RHTe_9DAeTodNlwES6DlcKS2pNU6-juO1wi-lfXHmDh82OT5Nhn6an0SZ9ITrRMvg2_1JoP_gRc_bl9ud_P5TkejiSKqJJX2sFvWEtiRfK9sHgIx0VeFVmkqf8&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=AgVJs_uZeL0C&hl=&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=AgVJs_uZeL0C&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.com/books/about/Addressing_Test_Anxiety_in_a_High_Stakes.html?hl=&id=AgVJs_uZeL0C"
+    },
+    "layerInfo": {
+        "layers": [
+            {
+                "layerId": "geo",
+                "volumeAnnotationsVersion": "4"
+            }
+        ]
+    },
+    "saleInfo": {
+        "country": "IL",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+    },
+    "accessInfo": {
+        "country": "IL",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+            "isAvailable": true,
+            "acsTokenLink": "http://books.google.com/books/download/Addressing_Test_Anxiety_in_a_High_Stakes-sample-epub.acsm?id=AgVJs_uZeL0C&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+        },
+        "pdf": {
+            "isAvailable": false
+        },
+        "webReaderLink": "http://books.google.com/books/reader?id=AgVJs_uZeL0C&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+    }
+}

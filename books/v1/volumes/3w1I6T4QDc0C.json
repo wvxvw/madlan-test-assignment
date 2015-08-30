@@ -1,0 +1,77 @@
+{
+    "kind": "books#volume",
+    "id": "3w1I6T4QDc0C",
+    "etag": "pT6FNSsc35Y",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/3w1I6T4QDc0C",
+    "volumeInfo": {
+        "title": "How to Prepare for the Mechanical Aptitude and Spatial Relations Tests",
+        "authors": [
+            "Joel Wiesen"
+        ],
+        "publisher": "Barron's Educational Series",
+        "publishedDate": "2003",
+        "description": "Both private employers and public agencies use many different mechanical aptitude tests to screen job applicants seeking employment in areas that can range from machinist and skilled trades apprentice to helicopter pilot or aerospace engineer. Though tests take many different forms, all measure the same ability, and people who do well on any one test are likely to do well on all of them. This manual presents 18 practice tests in both mechanical aptitude and spatial ability, with answers and detailed explanations for all questions. The author also offers advice on ways to develop and improve mechanical aptitude, gives test-taking tips, and provides explanations of how simple machines--for instance, pulleys and levers--work. The book is filled with diagrams and illustrations",
+        "industryIdentifiers": [
+            {
+                "type": "ISBN_10",
+                "identifier": "0764123408"
+            },
+            {
+                "type": "ISBN_13",
+                "identifier": "9780764123405"
+            }
+        ],
+        "readingModes": {
+            "text": false,
+            "image": true
+        },
+        "pageCount": 396,
+        "printedPageCount": 392,
+        "dimensions": {
+            "height": "28.00 cm",
+            "width": "19.70 cm",
+            "thickness": "1.80 cm"
+        },
+        "printType": "BOOK",
+        "categories": [
+            "Study Aids / General",
+            "Study Aids / Vocational"
+        ],
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.0.1.0.preview.1",
+        "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=3w1I6T4QDc0C&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE71Z6sNOBnyPxxZFrBQh2x5fSZSpoKUrW7fpWFKoJnLXXDuGhQEACD-A9VoSLB5ewT4NjlJAC1RwY3018C3QgSxdjPR7sfLhvRh_lGXVAp4WUcjhumMeMvhSPtqyjN93YKVGDm1m&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=3w1I6T4QDc0C&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE738nf_S7lsQd7QGvMDZjaH8YmoG37WDOWiG8NVK8npMj5f7Lub3YRoqteGvINrL8s0WuNnNZdnlLm3bSgJaOpOe62OsnexwWviSgO5OOG2mtuhRrAohZovb7IJOMkl_MQ3Wqd5j&source=gbs_api",
+            "small": "http://books.google.com/books/content?id=3w1I6T4QDc0C&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE71-KkWRO-38OhFe1e-lspFPHd_rCx9mA19xG3jKpuCXYydbHhOw9A0M4SthTpL9Ku4AyVZEky_jaHVPygsjjgTyW0rad7JckQs75e8BCNpIX6einJ9fJRv616Gl5-UIa5trdP01&source=gbs_api",
+            "medium": "http://books.google.com/books/content?id=3w1I6T4QDc0C&printsec=frontcover&img=1&zoom=3&edge=curl&imgtk=AFLRE73_sCQYIZ2PUqVXRiFFIkkfitcCTi8OENgj_g8w4N_ZYOK_JBkhTYccH_cYtfPHdGaEH1QWTacYusTubfkgffi6PPIw4G11ezR9_aumNH9cSxm3bslRev-AGRuOPwZLLwEl9gbv&source=gbs_api",
+            "large": "http://books.google.com/books/content?id=3w1I6T4QDc0C&printsec=frontcover&img=1&zoom=4&edge=curl&imgtk=AFLRE71i-HCt0D1q1dqfiVz2VhE8GinT_EMsK67VFFN-0LuxTa-41IYX3H4BGjJPKM5a1X5HhYlBeDXdLgQCkLWLp-EaoS3zLx6lyrJpWcupAUFgGIaP1mbh0ASIs1rkv8zg6OVCYlx5&source=gbs_api",
+            "extraLarge": "http://books.google.com/books/content?id=3w1I6T4QDc0C&printsec=frontcover&img=1&zoom=6&edge=curl&imgtk=AFLRE73bKC1wTjYgrfRVNdkgakJH8vXp220u2q_dx4RuzccUFS4OUxJv5LyLWBJ1VbHNtVeIsm1scmvxZMa2eRVMO5IVHCt08-LebzygudcZ4h_9OQpOaWuA7Zcsqj329H3PvW5DSEyU&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=3w1I6T4QDc0C&hl=&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=3w1I6T4QDc0C&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.com/books/about/How_to_Prepare_for_the_Mechanical_Aptitu.html?hl=&id=3w1I6T4QDc0C"
+    },
+    "saleInfo": {
+        "country": "IL",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+    },
+    "accessInfo": {
+        "country": "IL",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+            "isAvailable": false
+        },
+        "pdf": {
+            "isAvailable": false
+        },
+        "webReaderLink": "http://books.google.com/books/reader?id=3w1I6T4QDc0C&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+    }
+}

@@ -1,0 +1,79 @@
+{
+    "kind": "books#volume",
+    "id": "U765adeBPlEC",
+    "etag": "QxIU+JNbV40",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/U765adeBPlEC",
+    "volumeInfo": {
+        "title": "Hair Test Interpretation",
+        "subtitle": "Finding Hidden Toxicities",
+        "authors": [
+            "Andrew Hall Cutler"
+        ],
+        "publisher": "Andrew Cutler",
+        "publishedDate": "2004",
+        "description": "\"Interpretation of hair element tests including effects of mercury on mineral levels, with description of effects of toxicity and if relevant deficiency of each element plus treatment information, plus 70 interpreted hair tests with discussion.\"",
+        "industryIdentifiers": [
+            {
+                "type": "ISBN_10",
+                "identifier": "0967616816"
+            },
+            {
+                "type": "ISBN_13",
+                "identifier": "9780967616810"
+            }
+        ],
+        "readingModes": {
+            "text": false,
+            "image": true
+        },
+        "pageCount": 298,
+        "printedPageCount": 265,
+        "dimensions": {
+            "height": "28.00 cm",
+            "width": "21.60 cm",
+            "thickness": "1.30 cm"
+        },
+        "printType": "BOOK",
+        "categories": [
+            "Science / Life Sciences / General"
+        ],
+        "averageRating": 5.0,
+        "ratingsCount": 2,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=U765adeBPlEC&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE70DZDQvy2RWvuhqAzihMI-M78QBynQ5e1YMXa-D40cBLVp_Ov6C77noV9oV5RxS940996LSlx_yhj0_ZKkEQVOGakjV5BaNX1yd3ubAJtVZaRe_Aq4k3eOZtScxcvBkPrNeZK3R&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=U765adeBPlEC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71f2IT8XUbdNk3d1LY7OS2RUJXeMQIfAAs3UVugWbzCWDhJACj0kNDKcvorCD5QVoY4Y4ggd9E85Aw4Lno7YoPp6N9fTNar1HpDO9OLCaZyeBMzN-YVoCYgu2kLeE9yqqNUKWbA&source=gbs_api",
+            "small": "http://books.google.com/books/content?id=U765adeBPlEC&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE70SbfF78wqFAKQAzaPeTOi6baHXFNGLd8r5fDijEqhznlq0uOJpVpOLatAqZ3gHphVHMi8_qeWQFrz8Hm7tItzwEEER1kprhHdwa0SyhAg3AF-zd_GAkRk-qubmnBKC0bkzycqF&source=gbs_api",
+            "medium": "http://books.google.com/books/content?id=U765adeBPlEC&printsec=frontcover&img=1&zoom=3&edge=curl&imgtk=AFLRE71qD9lHmBDKy39LNJwJ5QIwdQ3SI2jmJC5IPwa7YMiD9l7iNJEQiK22OrBpQx1hPBFaZ1mT_RJE09YuGVyprVozXcz9QkBi2Aul9yJ0mx_6v6ncz2tqpBf5d9LPqeE980GxDi4-&source=gbs_api",
+            "large": "http://books.google.com/books/content?id=U765adeBPlEC&printsec=frontcover&img=1&zoom=4&edge=curl&imgtk=AFLRE72GlEoGj7HLw0EO8A3Wjtm1UcbGrZN6tMt7qyV0gh87aOePmW0RuM6BEoZV3CMUR_NSerIvGvjrH_UZX5iTppLnxOqhgKpTPBqvhV8Uo4Slz_VZRt39SDl8OuFx2A1U8cgPR4c8&source=gbs_api",
+            "extraLarge": "http://books.google.com/books/content?id=U765adeBPlEC&printsec=frontcover&img=1&zoom=6&edge=curl&imgtk=AFLRE71qCxd03uih-FQ9BYSzkug1QQx7ueCAuDHE6AszT6cNJuWlN8sA5oiEyWoILcmoyFgijTso7-8ujpmsddBNxJRt_jVFQafSDJv5AQ9y0TuXmULK0oZD-a7Wb4BXSlbv_yqIaSN-&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=U765adeBPlEC&hl=&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=U765adeBPlEC&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.com/books/about/Hair_Test_Interpretation.html?hl=&id=U765adeBPlEC"
+    },
+    "saleInfo": {
+        "country": "IL",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+    },
+    "accessInfo": {
+        "country": "IL",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+            "isAvailable": false
+        },
+        "pdf": {
+            "isAvailable": false
+        },
+        "webReaderLink": "http://books.google.com/books/reader?id=U765adeBPlEC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+    }
+}

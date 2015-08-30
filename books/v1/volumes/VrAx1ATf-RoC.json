@@ -1,0 +1,105 @@
+{
+    "kind": "books#volume",
+    "id": "VrAx1ATf-RoC",
+    "etag": "ld0t0ZgnWWA",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/VrAx1ATf-RoC",
+    "volumeInfo": {
+        "title": "How Google Tests Software",
+        "authors": [
+            "James A. Whittaker",
+            "Jason Arbon",
+            "Jeff Carollo"
+        ],
+        "publisher": "Addison-Wesley",
+        "publishedDate": "2012-03-21",
+        "description": "\u003cp\u003e2012 Jolt Award finalist!\u003c/p\u003e \u003cp\u003e \u003c/p\u003e \u003cp\u003e Pioneering the Future of Software Test \u003c/p\u003e \u003cp\u003e \u003c/p\u003e \u003cp\u003eDo you need to get it right, too? Then, \u003ci\u003elearn \u003c/i\u003efrom Google\u003ci\u003e.\u003c/i\u003e Legendary testing expert James Whittaker, until recently a Google testing leader, and two top Google experts reveal exactly how Google tests software, offering brand-new best practices you can use even if you’re not quite Google’s size…\u003ci\u003eyet!\u003c/i\u003e \u003c/p\u003e \u003cp\u003e \u003c/p\u003e \u003cp\u003e Breakthrough Techniques You Can Actually Use \u003c/p\u003e \u003cp\u003e \u003c/p\u003e \u003cp\u003eDiscover 100% practical, amazingly scalable techniques for analyzing risk and planning tests…thinking like real users…implementing exploratory, black box, white box, and acceptance testing…getting usable feedback…tracking issues…choosing and creating tools…testing “Docs & Mocks,” interfaces, classes, modules, libraries, binaries, services, and infrastructure…reviewing code and refactoring…using test hooks, presubmit scripts, queues, continuous builds, and more. With these techniques, you can transform testing from a bottleneck into an \u003ci\u003eaccelerator\u003c/i\u003e–and make your whole organization more productive!\u003c/p\u003e \u003cp\u003e \u003c/p\u003e",
+        "industryIdentifiers": [
+            {
+                "type": "ISBN_10",
+                "identifier": "0132851555"
+            },
+            {
+                "type": "ISBN_13",
+                "identifier": "9780132851558"
+            }
+        ],
+        "readingModes": {
+            "text": true,
+            "image": true
+        },
+        "pageCount": 272,
+        "printedPageCount": 316,
+        "printType": "BOOK",
+        "categories": [
+            "Computers / Software Development & Engineering / Quality Assurance & Testing",
+            "Computers / Software Development & Engineering / General"
+        ],
+        "averageRating": 4.0,
+        "ratingsCount": 36,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": true,
+        "contentVersion": "2.3.3.0.preview.3",
+        "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=VrAx1ATf-RoC&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE70HoahMQrsBo5rnyJbxebOfxuP4kpC122wPi1TASBuYT6SmpQD5iHz5DjEkTFD1JQY4NiC9UiezSY-RpSKW6ZwvKD22G9i0h_FNtvrk7VMhWKJ2NY4Dyv5DJZh3iJEi502UJ9SS&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=VrAx1ATf-RoC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE73ap6mG00kGuyWy-51lQJFvWNtY6lK_u1lMjchdAoE3nRDYtoPuZcQyIy5bo_H6zBIX_cTYUso-rDf3fQoyw01aOkPm84ra0Hs8cIkzMkad_jHdOJFbp-XxYbO5HjTBDVEbYJ30&source=gbs_api",
+            "small": "http://books.google.com/books/content?id=VrAx1ATf-RoC&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE71wre13HD5XGKSLM56IVDcjeuoCtHkRDOIkw_l2K2_keasodT51FePt1wGMp3fl4C2xn-NLBM0_QgWt_Q4Lo02CC_qun637kaOBqgUVnewOy-rc7giOSbIWSMnAjIRcZoluFkLP&source=gbs_api",
+            "medium": "http://books.google.com/books/content?id=VrAx1ATf-RoC&printsec=frontcover&img=1&zoom=3&edge=curl&imgtk=AFLRE73pQxVy0TrCPGmt88CvOHyQNxTPglY9GcoV_W1X5tOmnGvapjzFh8ks1KeXy6a0ypEJ6WUTQT1U3K-DcblaKkLXzNJ41U7d_TBfuG2Ci5_X_n4QFTTJAH8GrAoU-6igAHodT_bj&source=gbs_api",
+            "large": "http://books.google.com/books/content?id=VrAx1ATf-RoC&printsec=frontcover&img=1&zoom=4&edge=curl&imgtk=AFLRE72I1T0ObqZ-hPr82oB1x03aVF4waQJFBKwzPatupNaNO5udqi9gPuX09sTcyK4J7qQp-Kcqp0xGUfZy5osC7FCaKTFsPN7_lYAw1Q1Pk0hKx29Re5VrSwsW5ZbJNPRe45BEBKII&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=VrAx1ATf-RoC&hl=&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=VrAx1ATf-RoC&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.com/books/about/How_Google_Tests_Software.html?hl=&id=VrAx1ATf-RoC"
+    },
+    "layerInfo": {
+        "layers": [
+            {
+                "layerId": "geo",
+                "volumeAnnotationsVersion": "8"
+            }
+        ]
+    },
+    "saleInfo": {
+        "country": "IL",
+        "saleability": "FOR_SALE",
+        "isEbook": true,
+        "listPrice": {
+            "amount": 71.0,
+            "currencyCode": "ILS"
+        },
+        "retailPrice": {
+            "amount": 71.0,
+            "currencyCode": "ILS"
+        },
+        "buyLink": "http://books.google.com/books?id=VrAx1ATf-RoC&hl=&buy=&source=gbs_api",
+        "offers": [
+            {
+                "finskyOfferType": 1,
+                "listPrice": {
+                    "amountInMicros": 7.1E7,
+                    "currencyCode": "ILS"
+                },
+                "retailPrice": {
+                    "amountInMicros": 7.1E7,
+                    "currencyCode": "ILS"
+                }
+            }
+        ]
+    },
+    "accessInfo": {
+        "country": "IL",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+        "epub": {
+            "isAvailable": false
+        },
+        "pdf": {
+            "isAvailable": false
+        },
+        "webReaderLink": "http://books.google.com/books/reader?id=VrAx1ATf-RoC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+    }
+}

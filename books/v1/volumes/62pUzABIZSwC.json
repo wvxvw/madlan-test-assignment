@@ -1,0 +1,80 @@
+{
+    "kind": "books#volume",
+    "id": "62pUzABIZSwC",
+    "etag": "NJbDoRpClIM",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/62pUzABIZSwC",
+    "volumeInfo": {
+        "title": "Experiences of Test Automation",
+        "subtitle": "Case Studies of Software Test Automation",
+        "authors": [
+            "Dorothy Graham",
+            "Mark Fewster"
+        ],
+        "publisher": "Addison-Wesley Professional",
+        "publishedDate": "2012",
+        "description": "\u003cp\u003eSoftware test automation has moved beyond a luxury to become a necessity. Applications and systems have grown ever larger and more complex, and manual testing simply cannot keep up. As technology changes, and more organizations move into agile development, testing must adapt--and quickly. Test automation is essential, but poor automation is wasteful--how do you know where your efforts will take you?\u003c/p\u003e \u003cp\u003e \u003c/p\u003e \u003cp\u003e\u003c/p\u003e \u003cp\u003eAuthors Dorothy Graham and Mark Fewster wrote the field's seminal text, \u003ci\u003eSoftware Test Automation,\u003c/i\u003e which has guided many organizations toward success. Now, in \u003cb\u003e\u003ci\u003eExperiences of Test Automation,\u003c/i\u003e\u003c/b\u003e they reveal test automation at work in a wide spectrum of organizations and projects, from complex government systems to medical devices, SAP business process development to Android mobile apps and cloud migrations. This book addresses both management and technical issues, describing failures and successes, brilliant ideas and disastrous decisions and, above all, offers specific lessons you can use.\u003c/p\u003e \u003cp\u003e\u003c/p\u003e \u003cp\u003eCoverage includes\u003c/p\u003e \u003cp\u003e\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cp\u003e\u003c/p\u003e \u003c/li\u003e \u003cli\u003eTest automation in agile development\u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003c/p\u003e \u003cp\u003e\u003c/p\u003e \u003c/li\u003e \u003cli\u003eHow management support can make or break successful automation\u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003c/p\u003e \u003cp\u003e\u003c/p\u003e \u003c/li\u003e \u003cli\u003eThe importance of a good testware architecture and abstraction levels\u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003c/p\u003e \u003cp\u003e\u003c/p\u003e \u003c/li\u003e \u003cli\u003eMeasuring benefits and Return on Investment (ROI)\u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003c/p\u003e \u003cp\u003e\u003c/p\u003e \u003c/li\u003e \u003cli\u003eManagement issues, including skills, planning, scope, and expectations\u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003c/p\u003e \u003cp\u003e\u003c/p\u003e \u003c/li\u003e \u003cli\u003eModel-Based Testing (MBT), monkey testing, and exploratory test automation\u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003c/p\u003e \u003cp\u003e\u003c/p\u003e \u003c/li\u003e \u003cli\u003eThe importance of standards, communication, documentation, and flexibility in enterprise-wide automation\u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003c/p\u003e \u003cp\u003e\u003c/p\u003e \u003c/li\u003e \u003cli\u003eAutomating support activities\u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003c/p\u003e \u003cp\u003e\u003c/p\u003e \u003c/li\u003e \u003cli\u003eWhich tests to automate, and what not to automate\u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003c/p\u003e \u003cp\u003e\u003c/p\u003e \u003c/li\u003e \u003cli\u003eHidden costs of automation: maintenance and failure analysis\u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003c/p\u003e \u003cp\u003e\u003c/p\u003e \u003c/li\u003e \u003cli\u003eThe right objectives for test automation: why \"finding bugs\" may not be a good objective\u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003c/p\u003e \u003cp\u003e\u003c/p\u003e \u003c/li\u003e \u003cli\u003eHighlights, consisting of lessons learned, good points, and helpful tips\u003c/li\u003e \u003cli\u003e \u003cp\u003e\u003c/p\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003e\u003c/p\u003e \u003cp\u003e\u003cb\u003e\u003ci\u003eExperiences of Test Automation\u003c/i\u003e\u003c/b\u003e will be invaluable to everyone considering, implementing, using, or managing test automation. Testers, analysts, developers, automators and automation architects, test managers, project managers, QA professionals, and technical directors will all benefit from reading this book.\u003c/p\u003e",
+        "industryIdentifiers": [
+            {
+                "type": "ISBN_10",
+                "identifier": "0321754069"
+            },
+            {
+                "type": "ISBN_13",
+                "identifier": "9780321754066"
+            }
+        ],
+        "readingModes": {
+            "text": false,
+            "image": true
+        },
+        "pageCount": 617,
+        "printedPageCount": 672,
+        "dimensions": {
+            "height": "22.90 cm",
+            "width": "17.80 cm",
+            "thickness": "3.80 cm"
+        },
+        "printType": "BOOK",
+        "categories": [
+            "Computers / Software Development & Engineering / General",
+            "Computers / Software Development & Engineering / Quality Assurance & Testing"
+        ],
+        "averageRating": 4.0,
+        "ratingsCount": 3,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "preview-1.0.0",
+        "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=62pUzABIZSwC&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE70PjhiTrrXwuHgG2CFaPdNM3o6i0sLKB64hq9H8l8t6vMIkJEPnqazblWyWJrOO844qZNu1HI93kP0OfteFBMVV4RKv9Td12V5Zpeh3g3wYL6BmgI7gP1YEOb5ZF16hOif68Z4m&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=62pUzABIZSwC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE73RVwgZhWel-tR0RbvWfI5OtTuPCotSAn-hmWXTsg-brENucXOHLasNnbalBgj_bQ6_z_enRD8D2Y-Ss_Vr-AJvYh574bZYyeQt6xW7NNiRKwoBJxAZ1BtpXa4DQCx-w0RUFCWb&source=gbs_api",
+            "small": "http://books.google.com/books/content?id=62pUzABIZSwC&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE72L7yPUKHMOBE2xTBnavEl1c6XJZbjBlKQITpndcoRPvLUInCc1olP1eX4hXetYrt3z1qtjkoTY4NRafVNwtgosGQzxOx-btqT8V5xczHbSVQHbqCBikESWFsgZGAEebWkq7Kw5&source=gbs_api",
+            "medium": "http://books.google.com/books/content?id=62pUzABIZSwC&printsec=frontcover&img=1&zoom=3&edge=curl&imgtk=AFLRE72O0XECf_pwi_EC0mL5AjYfZR5msdNOvUrVrGWII-57Gd9Caoly-Vvp7S7k40FnMBB1OORF7Z0NWmflmCeqy7rKlbgiX4cR_GiRbkIR_TlZpiJRWNC847NZ-UZ1617YGNbxJmCK&source=gbs_api",
+            "large": "http://books.google.com/books/content?id=62pUzABIZSwC&printsec=frontcover&img=1&zoom=4&edge=curl&imgtk=AFLRE72Pz965RZu5IZIjNfcdlG2eEVCRvltrT65fl4Nh5A_KhvsbZ-M3eJTsLaIMqN1aqSvl3wX227GEQR5h_ckfVVmzuAfpBfP4V4ayZFP1012ji2UdzP2FFA8uEB_o0M3VISwFdb7O&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=62pUzABIZSwC&hl=&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=62pUzABIZSwC&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.com/books/about/Experiences_of_Test_Automation.html?hl=&id=62pUzABIZSwC"
+    },
+    "saleInfo": {
+        "country": "IL",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+    },
+    "accessInfo": {
+        "country": "IL",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+        "epub": {
+            "isAvailable": false
+        },
+        "pdf": {
+            "isAvailable": false
+        },
+        "webReaderLink": "http://books.google.com/books/reader?id=62pUzABIZSwC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+    }
+}

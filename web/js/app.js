@@ -228,23 +228,17 @@ var Plot = React.createClass({
      * Actually render the plot.
      */
     renderPlot: function () {
-        function rhombus(ctx, x, y, radius, shadow) {
-            ctx.moveTo(x - radius, y);
-            ctx.lineTo(x, y - radius);
-            ctx.lineTo(x + radius, y);
-            ctx.lineTo(x, y + radius);
-            ctx.lineTo(x - radius, y);
-        }
         if (this.props.data.bars.length) {
 
             $.plot("#plot", this.props.data.bars, {
                 series: {
-                    points: {
+                    bars: {
                         radius: 10,
                         lineWidth: 0,
+                        barWidth: 0.3,
                         show: true,
+                        horizontal: true,
                         fill: 0.9,
-                        symbol: rhombus,
                         fillColor: false
                     }
                 },
@@ -253,13 +247,14 @@ var Plot = React.createClass({
 				    borderWidth: { top: 4, right: 4, bottom: 4, left: 4 },
                     borderColor: "#A99C9A"
 			    },
-                xaxis: {
+                yaxis: {
                     labelWidth: 112,
                     labelHeight: 112,
+                    tickLength: 25,
                     reserveSpace: true,
                     ticks: this.props.data.ticks
                 },
-                yaxis: {
+                xaxis: {
                     min: this.props.data.range[0],
                     max: this.props.data.range[1]
                 }
@@ -296,16 +291,20 @@ var Plot = React.createClass({
 
 var ModalMixin = {
     show: function (message) {
+        function formattedMessage() { return { __html: message }; }
         React.render((
             <div className="modal-body">
               <div className="alert alert-danger">
                 <div className="row">
                   <div className="col-lg-8">
-                    <p className="danger">{message}</p>
+                    <p className="danger" 
+                      dangerouslySetInnerHTML={formattedMessage()}/>
                   </div>
                   <div className="col-lg-4">
                     <button type="button" className="btn"
                         onClick={this.hide}>Dismiss</button>
+                    <button type="button" className="btn"
+                        onClick={this.workOffline}>Work Offline</button>
                   </div>
                 </div>
               </div>
@@ -314,6 +313,10 @@ var ModalMixin = {
     },
     hide: function () {
         React.unmountComponentAtNode($("#message").modal("hide").get(0));
+    },
+    workOffline: function () {
+        this.hide();
+        $("#search").trigger("search", $("#search").val());
     }
 };
 
@@ -367,8 +370,16 @@ var GViewer = React.createClass({
     componentDidUpdate: function () {
         var elt = $("#gviewer");
         elt.empty();
-        var viewer = new google.books.DefaultViewer(elt.get(0));
-        viewer.load(this.props.selected, this.loadFail, this.loadSuccess);
+        // It is possible that this will be called before
+        // Google API finished loading, but we don't have anything
+        // to display at that moment, so we'll ignore it.
+        try {
+            var viewer = new google.books.DefaultViewer(elt.get(0));
+            viewer.load(this.props.selected, this.loadFail, this.loadSuccess);
+        } catch (error) {
+            if (google && google.books && google.books.DefaultViewer)
+                throw error;
+        }
     }
 });
 
@@ -487,7 +498,8 @@ var BootstrapContainer = React.createClass({
             averageRating: 0,
             publisher: "",
             publishDate: "",
-            industryIdentifiers: [{ identifier: "" }]
+            industryIdentifiers: [{ identifier: "" }],
+            eventsInitiated: false
         };
     },
     getInitialState: function () {
@@ -496,8 +508,21 @@ var BootstrapContainer = React.createClass({
             selected: "",
             startIndex: 0,
             maxResults: 5,
+            googleFailed: false,
             active: this.defaultActive()
         };
+    },
+
+    bookApiHost: function () {
+        return this.state.googleFailed?
+            location.protocol + "//" + location.host :
+            "https://www.googleapis.com";
+    },
+
+    bookSEHost: function () {
+        return this.state.googleFailed?
+            location.protocol + "//" + location.host :
+            "https://books.google.co.il";
     },
     
     /**
@@ -548,14 +573,14 @@ var BootstrapContainer = React.createClass({
         result.bars = this.state.previews.map(function (book, i) {
             return {
                 color: book.volumeInfo == this.state.active ? "#634A80" : "#7A8065",
-                data: [[i, parseInt((book.volumeInfo || {}).publishedDate || "0", 10)]]
+                data: [[parseInt((book.volumeInfo || {}).publishedDate || "0", 10), i]]
             };
         }.bind(this));
         result.ticks = this.state.previews.map(function (book, i) {
             return [i, this.getTitle(book)];
         }.bind(this));
-        data = _.pluck(_.pluck(_.pluck(result.bars, "data"), 0), 1);
-        result.range = [_.min(data), _.max(data)];
+        data = _.pluck(_.pluck(_.pluck(result.bars, "data"), 0), 0);
+        result.range = [_.min(data) - 1, _.max(data) + 1];
         return result;
     },
 
@@ -594,7 +619,7 @@ var BootstrapContainer = React.createClass({
         }
 
         _.each(pending, function (item) {
-            $.ajax("https://www.googleapis.com/books/v1/volumes/" + item.id)
+            $.ajax(this.bookApiHost() + "/books/v1/volumes/" + item.id)
             .done(_.partial(itemLoadHandler, item))
             .fail(_.partial(itemErrorHandler, item))
             .fail(that.displayError);
@@ -604,7 +629,13 @@ var BootstrapContainer = React.createClass({
     /**
      * All errors that happen inside this application will be handled here.
      */
-    displayError: function (error) { this.show(error); },
+    displayError: function (error) {
+        var message;
+        this.setState({ googleFailed: true });
+        try { message = error.responseJSON.error.message; }
+        catch (err) { message = error; }
+        this.show(message);
+    },
     
     /**
      * The (non-existing so far) pagination will happen here.
@@ -622,39 +653,42 @@ var BootstrapContainer = React.createClass({
      * BUG: It seems like we may accidentally subscribe multiple times.
      */
     initEvents: function () {
-        var node = $(React.findDOMNode(this));
-        node.on("select", function (event, data) {
-            if (data) {
-                this.setState({ 
-                    selected: "http://books.google.co.il/books?id=" + 
-                    data.id + "&pg=PP1#v=onepage",
-                    active: data.volumeInfo
+        if (!this.state.eventsInitiated) {
+            var node = $(React.findDOMNode(this));
+            node.on("select", function (event, data) {
+                if (data) {
+                    this.setState({ 
+                        selected: this.bookSEHost() + "/books?id=" + 
+                        data.id + "&pg=PP1#v=onepage",
+                        active: data.volumeInfo
+                    });
+                }
+            }.bind(this));
+            node.on("search", function (event, query) {
+                $.ajax({
+                    url: this.bookApiHost() + "/books/v1/volumes",
+                    dataType: "json",
+                    data: {
+                        q: query,
+                        startIndex: this.state.startIndex,
+                        maxResults: this.state.maxResults
+                    } })
+                .done(this.repopulateList)
+                .done(this.updateIndex)
+                .fail(this.displayError);
+                this.setState({
+                    active: this.defaultActive(),
+                    selected: "",
+                    previews: []
                 });
-            }
-        }.bind(this));
-        node.on("search", function (event, query) {
-            $.ajax({
-                url: "https://www.googleapis.com/books/v1/volumes",
-                dataType: "json",
-                data: {
-                    q: query,
-                    startIndex: this.state.startIndex,
-                    maxResults: this.state.maxResults
-                } })
-            .done(this.repopulateList)
-            .done(this.updateIndex)
-            .fail(this.displayError);
-            this.setState({
-                active: this.defaultActive(),
-                selected: "",
-                previews: []
-            });
-        }.bind(this));
-        node.on("sort", function (event, criteria) {
-            var books = this.state.previews.concat();
-            books.sort(this.sorters()[criteria]);
-            this.setState({ previews: books });
-        }.bind(this));
+            }.bind(this));
+            node.on("sort", function (event, criteria) {
+                var books = this.state.previews.concat();
+                books.sort(this.sorters()[criteria]);
+                this.setState({ previews: books });
+            }.bind(this));
+            this.setState({ eventsInitiated: true });
+        }
     },
     
     componentDidUpdate: function () { this.initEvents(); },

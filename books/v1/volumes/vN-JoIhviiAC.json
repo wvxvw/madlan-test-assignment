@@ -1,0 +1,80 @@
+{
+    "kind": "books#volume",
+    "id": "vN-JoIhviiAC",
+    "etag": "3NWje0IJnkg",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/vN-JoIhviiAC",
+    "volumeInfo": {
+        "title": "The Times Book of IQ Tests",
+        "authors": [
+            "Kenneth A. Russell",
+            "Philip J. Carter"
+        ],
+        "publisher": "Kogan Page Publishers",
+        "publishedDate": "2002",
+        "description": "400 never before published questions, complete with a guide to assessing your performance provide you with plenty of opportunity to practice, whether it's for a job interview or for your own entertainment.",
+        "industryIdentifiers": [
+            {
+                "type": "ISBN_10",
+                "identifier": "0749437332"
+            },
+            {
+                "type": "ISBN_13",
+                "identifier": "9780749437336"
+            }
+        ],
+        "readingModes": {
+            "text": false,
+            "image": true
+        },
+        "pageCount": 195,
+        "printedPageCount": 192,
+        "dimensions": {
+            "height": "22.00 cm",
+            "width": "13.50 cm",
+            "thickness": "1.50 cm"
+        },
+        "printType": "BOOK",
+        "categories": [
+            "Games / Puzzles",
+            "Games / Quizzes"
+        ],
+        "averageRating": 5.0,
+        "ratingsCount": 1,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.1.1.0.preview.1",
+        "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=vN-JoIhviiAC&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE71pDyiYhnb9yPxwVGGjRmmQBTCA0HnCIhVRMrz0jx7cRjNUUiIR9KGL5mWYmMEPT7fiRT9pNL5y5_p77ZIWnBEDmJFxtF4-LMqNSh_ekBKqITPVFaqmpaBctPZC6YKfps3qMNyj&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=vN-JoIhviiAC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71eJSFKa-mmX5W7XUyhk0RZVOnjQJOZhENkhOA7SKuPGcPwl8Kq4zW5pqhZiZv7TYl_1oG_3yO8RPj_xOJCGiP3_I9tYCWI8e2Tn8_aZQVDTfk9H9one9xKgsFPTsCkygJUmMz6&source=gbs_api",
+            "small": "http://books.google.com/books/content?id=vN-JoIhviiAC&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE72PnCbs2yAEOlyXPaQc68GqYf2jvJ1uNdbo3hwov8360HPqzCHcN2CbDqTT-bTZna3wk2-CaL-2G61MBx40v8AbEXmBCmTYG7GqyrrarNLZ-Gg9BKygUleBGmeKrm7DrCibuNOf&source=gbs_api",
+            "medium": "http://books.google.com/books/content?id=vN-JoIhviiAC&printsec=frontcover&img=1&zoom=3&edge=curl&imgtk=AFLRE724PBPGBYbbAFbm11vOHNe6XtDs3vfWXhtZXDZ5R71svGJx8TBAF8aKqKGOmzYqGpStv4iwOwmegV76Rt6byA8nVn0JctvR5ovwYGCcw_elZXn7ZAED-_IRP7IgH7XXsxtl7nQn&source=gbs_api",
+            "large": "http://books.google.com/books/content?id=vN-JoIhviiAC&printsec=frontcover&img=1&zoom=4&edge=curl&imgtk=AFLRE73og0nioCoqU9Pe6mPPIV4hHwWgigrAVTApd3yKnpQiPx2zwdmPrPfg1G27JUbXtLM3rTlz2btvrmlXGOouUPAcWQDULNBDv3ZQuKL4guNUQTdpfx_T9G4A2anfE1rXvNddC8Q2&source=gbs_api",
+            "extraLarge": "http://books.google.com/books/content?id=vN-JoIhviiAC&printsec=frontcover&img=1&zoom=6&edge=curl&imgtk=AFLRE71H1y0ol04emnVKmPrUqOGggy1kCzlhtT_smq60zVIKGaxTbW_VGD29c_15DBI9GCVHtO1Zl_8trBkOlHf43XlT1UZHlGDFr0y9CjtLudeQCGrlaPGZcqnOTJyrvsJ2J0gNnoX_&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=vN-JoIhviiAC&hl=&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=vN-JoIhviiAC&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.com/books/about/The_Times_Book_of_IQ_Tests.html?hl=&id=vN-JoIhviiAC"
+    },
+    "saleInfo": {
+        "country": "IL",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+    },
+    "accessInfo": {
+        "country": "IL",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+            "isAvailable": false
+        },
+        "pdf": {
+            "isAvailable": false
+        },
+        "webReaderLink": "http://books.google.com/books/reader?id=vN-JoIhviiAC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+    }
+}

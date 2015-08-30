@@ -1,0 +1,87 @@
+{
+    "kind": "books#volume",
+    "id": "gFgnde_vwMAC",
+    "etag": "zCJ5RfTZC3M",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/gFgnde_vwMAC",
+    "volumeInfo": {
+        "title": "Test-driven Development",
+        "subtitle": "By Example",
+        "authors": [
+            "Kent Beck"
+        ],
+        "publisher": "Addison-Wesley Professional",
+        "publishedDate": "2003",
+        "description": "\u003cp\u003eClean code that works--now. This is the seeming contradiction that lies behind much of the pain of programming. Test-driven development replies to this contradiction with a paradox--test the program before you write it. \u003cp\u003eA new idea? Not at all. Since the dawn of computing, programmers have been specifying the inputs and outputs before programming precisely. Test-driven development takes this age-old idea, mixes it with modern languages and programming environments, and cooks up a tasty stew guaranteed to satisfy your appetite for clean code that works--now. \u003cp\u003eDevelopers face complex programming challenges every day, yet they are not always readily prepared to determine the best solution. More often than not, such difficult projects generate a great deal of stress and bad code. To garner the strength and courage needed to surmount seemingly Herculean tasks, programmers should look to test-driven development (TDD), a proven set of techniques that encourage simple designs and test suites that inspire confidence. \u003cp\u003eBy driving development with automated tests and then eliminating duplication, any developer can write reliable, bug-free code no matter what its level of complexity. Moreover, TDD encourages programmers to learn quickly, communicate more clearly, and seek out constructive feedback. \u003cp\u003eReaders will learn to: Solve complicated tasks, beginning with the simple and proceeding to the more complex. Write automated tests before coding. Grow a design organically by refactoring to add design decisions one at a time. Create tests for more complicated logic, including reflection and exceptions. Use patterns to decide what tests to write. Create tests using xUnit, the architecture at the heart of many programmer-oriented testing tools. \u003cp\u003eThis book follows two TDD projects from start to finish, illustrating techniques programmers can use to easily and dramatically increase the quality of their work. The examples are followed by references to the featured TDD patterns and refactorings. With its emphasis on agile methods and fast development strategies, \"Test-Driven Development\" is sure to inspire readers to embrace these under-utilized but powerful techniques. \u003cbr\u003e 0321146530B10172002",
+        "industryIdentifiers": [
+            {
+                "type": "ISBN_10",
+                "identifier": "0321146530"
+            },
+            {
+                "type": "ISBN_13",
+                "identifier": "9780321146533"
+            }
+        ],
+        "readingModes": {
+            "text": true,
+            "image": true
+        },
+        "pageCount": 220,
+        "printedPageCount": 244,
+        "dimensions": {
+            "height": "24.00 cm",
+            "width": "18.50 cm",
+            "thickness": "1.80 cm"
+        },
+        "printType": "BOOK",
+        "categories": [
+            "Computers / Software Development & Engineering / General"
+        ],
+        "averageRating": 4.0,
+        "ratingsCount": 34,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "1.0.2.0.preview.3",
+        "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=gFgnde_vwMAC&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE7138ygL559O0Xvp3JSybqyVAY0kMlhI7AHwe0abN3CdoA9pFR13GPgHYh4RHbYe7QFqg3nNRlAC1vHiRdg1s7bFMeR2amEZFzAyctye4NdvQCJsbxAc2WnnBYXNlMSUsAocYOOU&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=gFgnde_vwMAC&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE73uTYQj5sFVDjR7GZVGPrPBGEYmWcBoaCsz82hXdti5CUb6DvRr5arkMdZX2mNunaN2QZHrm36WS9Lb0nAUs_VwLyJoqJHU9lJDrUMFxD-hq8IsSGVHtAVUNQcvdogA13EuX1cI&source=gbs_api",
+            "small": "http://books.google.com/books/content?id=gFgnde_vwMAC&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE72PdVbfjpdN0Em9EiNVt_jxfyCjR_cEPhj-VT6_7XloQs7KJx_tn6nhgxa2sbmMQ1HU48BBLosSniQZ2vCq1lP-trfU1HaAhoVvR4cyI7zhwTck_gCZ8QTcQMwF750OpxB4OKlU&source=gbs_api",
+            "medium": "http://books.google.com/books/content?id=gFgnde_vwMAC&printsec=frontcover&img=1&zoom=3&edge=curl&imgtk=AFLRE73PqHXzZVxTQKXX3vq9hjSevRQVkQ2pGyD0CUQDf6zK4bz4sWImDExIkX99zJLvhdpCvOQcgwCNeECn7odAN1g-dC8zdtm6n6T6cfBh3S-NVoTD7QmmKjYxfm3_vlhxZywbXLHa&source=gbs_api",
+            "large": "http://books.google.com/books/content?id=gFgnde_vwMAC&printsec=frontcover&img=1&zoom=4&edge=curl&imgtk=AFLRE70PeRZZHflTw0Bqga8sgW0akAvzstpB2L_bqBaruZbUXzTbyx2dsYgG3S-VudsMzHN-_qggf4JfhfHZEgfYRdVC-toJl-BUF31_uEZhdO-6FlIxK0M62oxzdU0-02F_4LTELRlU&source=gbs_api",
+            "extraLarge": "http://books.google.com/books/content?id=gFgnde_vwMAC&printsec=frontcover&img=1&zoom=6&edge=curl&imgtk=AFLRE70nIM4fDLiCSa81-YkfPyYTIRzTC9rk45OyoocOuvS_AuttL2kka4xXkxz-yGvdQC5qt2IbOwZMoJ6JLZORv5IeOEC60y_guZRT8Ws3t2jn8SOqApVnKkSrKValsBR8Gfjz3eRK&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=gFgnde_vwMAC&hl=&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=gFgnde_vwMAC&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.com/books/about/Test_driven_Development.html?hl=&id=gFgnde_vwMAC"
+    },
+    "layerInfo": {
+        "layers": [
+            {
+                "layerId": "geo",
+                "volumeAnnotationsVersion": "5"
+            }
+        ]
+    },
+    "saleInfo": {
+        "country": "IL",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+    },
+    "accessInfo": {
+        "country": "IL",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+        "epub": {
+            "isAvailable": false
+        },
+        "pdf": {
+            "isAvailable": false
+        },
+        "webReaderLink": "http://books.google.com/books/reader?id=gFgnde_vwMAC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+    }
+}

@@ -1,0 +1,78 @@
+{
+    "kind": "books#volume",
+    "id": "MePytSBVyX8C",
+    "etag": "i8rrJnCuqiE",
+    "selfLink": "https://www.googleapis.com/books/v1/volumes/MePytSBVyX8C",
+    "volumeInfo": {
+        "title": "TOEFL Test Strategies",
+        "authors": [
+            "Eli Hinkel"
+        ],
+        "publisher": "Barron's Educational Series",
+        "publishedDate": "2004-01-01",
+        "description": "Updated to reflect the most recent Tests of English as a Foreign Language, this book presents detailed advice on strategies test-takers can master for success when taking the TOEFL. Specific advice deals separately with how to answer questions in the Listening Comprehension, Structure and Written Expression, and Reading Comprehension sections of the TOEFL. Test-takers will also find lists of idioms and their meanings, new chapter serving as a tutorial for the current Computer-Based TOEFL, and eight model TOEFL practice tests with answer keys.",
+        "industryIdentifiers": [
+            {
+                "type": "ISBN_10",
+                "identifier": "0764123424"
+            },
+            {
+                "type": "ISBN_13",
+                "identifier": "9780764123429"
+            }
+        ],
+        "readingModes": {
+            "text": false,
+            "image": true
+        },
+        "pageCount": 469,
+        "printedPageCount": 474,
+        "dimensions": {
+            "height": "27.60 cm",
+            "width": "20.00 cm",
+            "thickness": "2.00 cm"
+        },
+        "printType": "BOOK",
+        "categories": [
+            "Study Aids / TOEFL (Test of English as a Foreign Language)"
+        ],
+        "averageRating": 4.0,
+        "ratingsCount": 5,
+        "maturityRating": "NOT_MATURE",
+        "allowAnonLogging": false,
+        "contentVersion": "0.0.1.0.preview.1",
+        "imageLinks": {
+            "smallThumbnail": "http://books.google.com/books/content?id=MePytSBVyX8C&printsec=frontcover&img=1&zoom=5&edge=curl&imgtk=AFLRE71ltkCVXE81JPSatcxJFkjN5qsDjXuJrJKPa6bVlhZxpq0zL1I2WBvYAfQbN6lRQNsOkqpljohNXXwterXEnT5eEPcTByEcRmc9Q5vhFo5k2sikC3w9P7gHi9bZMymdjis01N1H&source=gbs_api",
+            "thumbnail": "http://books.google.com/books/content?id=MePytSBVyX8C&printsec=frontcover&img=1&zoom=1&edge=curl&imgtk=AFLRE71_pnMPOYtBrYnUsWGoV9a_u6QdOdJg5k9RSI_Js3h_0RFmecJFKPqIEf7Nhi_1jxx9nUi85mfiRoAwASRb8Fqpy3MMTmyYw2djMRZ7IKH9oFTckMRlhJWNAfb0yXeZLqdTGGy8&source=gbs_api",
+            "small": "http://books.google.com/books/content?id=MePytSBVyX8C&printsec=frontcover&img=1&zoom=2&edge=curl&imgtk=AFLRE70lUH8uiOQp6vEpp7FhpYEr_4jnh3VYLSqS56b28mlc337zDrVod9uIN9ZK6GOtWqZOBIC_2vwR3HthP0oasuUjGP2SOOOAPaAnn6ELn05maYzjPcEfNUgOZCH1-WvpsFkCB2P8&source=gbs_api",
+            "medium": "http://books.google.com/books/content?id=MePytSBVyX8C&printsec=frontcover&img=1&zoom=3&edge=curl&imgtk=AFLRE72HA4tSAfTZsZqZIq1UaSVrFQVSLBwEFPh0QZijKTnOeI3iktu01kKM24gdFtWpV1Lm2eU2SPaAQ_aQPVPuj14vatNg_Y1TE3J6CCxhOwLfdtv8nTGvnzJgfbVBeFfd9t4TyBud&source=gbs_api",
+            "large": "http://books.google.com/books/content?id=MePytSBVyX8C&printsec=frontcover&img=1&zoom=4&edge=curl&imgtk=AFLRE73HMSIRdhts2wW3cHIoaNehRV-57HByYCPP_jbVdoyh1xO8OCnMwIvuvzqlahBS3vC8gn9-TMeEYQWmtiWGvGrzKxdnD3t0WqftywBddP3eKCcARs6LljZdNOVc9r5TZK5Lp1mT&source=gbs_api",
+            "extraLarge": "http://books.google.com/books/content?id=MePytSBVyX8C&printsec=frontcover&img=1&zoom=6&edge=curl&imgtk=AFLRE73HOrAkmcM2MUPAKfXoUffVJ1aAejnKirZrrd3R6Jdok_QTOJ5Ggungnrz4Ed3i-TUKcVwAXSur97oNZI2lYODa6yAxRa39RWUgpBmqQ5F10YC1g0La7i_rRNPXS5yPGKNxHo8r&source=gbs_api"
+        },
+        "language": "en",
+        "previewLink": "http://books.google.com/books?id=MePytSBVyX8C&hl=&source=gbs_api",
+        "infoLink": "http://books.google.com/books?id=MePytSBVyX8C&hl=&source=gbs_api",
+        "canonicalVolumeLink": "http://books.google.com/books/about/TOEFL_Test_Strategies.html?hl=&id=MePytSBVyX8C"
+    },
+    "saleInfo": {
+        "country": "IL",
+        "saleability": "NOT_FOR_SALE",
+        "isEbook": false
+    },
+    "accessInfo": {
+        "country": "IL",
+        "viewability": "PARTIAL",
+        "embeddable": true,
+        "publicDomain": false,
+        "textToSpeechPermission": "ALLOWED",
+        "epub": {
+            "isAvailable": false
+        },
+        "pdf": {
+            "isAvailable": false
+        },
+        "webReaderLink": "http://books.google.com/books/reader?id=MePytSBVyX8C&hl=&printsec=frontcover&output=reader&source=gbs_api",
+        "accessViewStatus": "SAMPLE",
+        "quoteSharingAllowed": false
+    }
+}

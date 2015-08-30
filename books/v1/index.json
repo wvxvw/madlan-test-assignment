@@ -1,0 +1,741 @@
+{
+    "kind": "books#volumes",
+    "totalItems": 601,
+    "items": [
+        {
+            "kind": "books#volume",
+            "id": "VrAx1ATf-RoC",
+            "etag": "kv5YJfuoIZc",
+            "selfLink": "https://www.googleapis.com/books/v1/volumes/VrAx1ATf-RoC",
+            "volumeInfo": {
+                "title": "How Google Tests Software",
+                "authors": [
+                    "James A. Whittaker",
+                    "Jason Arbon",
+                    "Jeff Carollo"
+                ],
+                "publisher": "Addison-Wesley",
+                "publishedDate": "2012-03-21",
+                "description": "2012 Jolt Award finalist! Pioneering the Future of Software Test Do you need to get it right, too? Then, learn from Google. Legendary testing expert James Whittaker, until recently a Google testing leader, and two top Google experts reveal exactly how Google tests software, offering brand-new best practices you can use even if you’re not quite Google’s size…yet! Breakthrough Techniques You Can Actually Use Discover 100% practical, amazingly scalable techniques for analyzing risk and planning tests…thinking like real users…implementing exploratory, black box, white box, and acceptance testing…getting usable feedback…tracking issues…choosing and creating tools…testing “Docs & Mocks,” interfaces, classes, modules, libraries, binaries, services, and infrastructure…reviewing code and refactoring…using test hooks, presubmit scripts, queues, continuous builds, and more. With these techniques, you can transform testing from a bottleneck into an accelerator–and make your whole organization more productive!",
+                "industryIdentifiers": [
+                    {
+                        "type": "ISBN_13",
+                        "identifier": "9780132851558"
+                    },
+                    {
+                        "type": "ISBN_10",
+                        "identifier": "0132851555"
+                    }
+                ],
+                "readingModes": {
+                    "text": true,
+                    "image": true
+                },
+                "pageCount": 272,
+                "printType": "BOOK",
+                "categories": [
+                    "Computers"
+                ],
+                "averageRating": 4.0,
+                "ratingsCount": 36,
+                "maturityRating": "NOT_MATURE",
+                "allowAnonLogging": false,
+                "contentVersion": "2.3.3.0.preview.3",
+                "imageLinks": {
+                    "smallThumbnail": "http://books.google.com/books/content?id=VrAx1ATf-RoC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                    "thumbnail": "http://books.google.com/books/content?id=VrAx1ATf-RoC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                },
+                "language": "en",
+                "previewLink": "http://books.google.com/books?id=VrAx1ATf-RoC&printsec=frontcover&dq=test&hl=&cd=1&source=gbs_api",
+                "infoLink": "http://books.google.com/books?id=VrAx1ATf-RoC&dq=test&hl=&source=gbs_api",
+                "canonicalVolumeLink": "http://books.google.com/books/about/How_Google_Tests_Software.html?hl=&id=VrAx1ATf-RoC"
+            },
+            "saleInfo": {
+                "country": "IL",
+                "saleability": "FOR_SALE",
+                "isEbook": true,
+                "listPrice": {
+                    "amount": 71.0,
+                    "currencyCode": "ILS"
+                },
+                "retailPrice": {
+                    "amount": 71.0,
+                    "currencyCode": "ILS"
+                },
+                "buyLink": "http://books.google.com/books?id=VrAx1ATf-RoC&dq=test&hl=&buy=&source=gbs_api",
+                "offers": [
+                    {
+                        "finskyOfferType": 1,
+                        "listPrice": {
+                            "amountInMicros": 7.1E7,
+                            "currencyCode": "ILS"
+                        },
+                        "retailPrice": {
+                            "amountInMicros": 7.1E7,
+                            "currencyCode": "ILS"
+                        }
+                    }
+                ]
+            },
+            "accessInfo": {
+                "country": "IL",
+                "viewability": "PARTIAL",
+                "embeddable": true,
+                "publicDomain": false,
+                "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+                "epub": {
+                    "isAvailable": false
+                },
+                "pdf": {
+                    "isAvailable": false
+                },
+                "webReaderLink": "http://books.google.com/books/reader?id=VrAx1ATf-RoC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+                "accessViewStatus": "SAMPLE",
+                "quoteSharingAllowed": false
+            },
+            "searchInfo": {
+                "textSnippet": "Legendary testing expert James Whittaker, until recently a Google testing leader, and two top Google experts reveal exactly how Google tests software, offering brand-new best practices you can use even if you’re not quite Google’s ..."
+            }
+        },
+        {
+            "kind": "books#volume",
+            "id": "3w1I6T4QDc0C",
+            "etag": "Caxoh61j4d0",
+            "selfLink": "https://www.googleapis.com/books/v1/volumes/3w1I6T4QDc0C",
+            "volumeInfo": {
+                "title": "How to Prepare for the Mechanical Aptitude and Spatial Relations Tests",
+                "authors": [
+                    "Joel Wiesen"
+                ],
+                "publisher": "Barron's Educational Series",
+                "publishedDate": "2003",
+                "description": "Provides exercises, examples, test-taking advice, and eighteen full-length practice exams.",
+                "industryIdentifiers": [
+                    {
+                        "type": "ISBN_10",
+                        "identifier": "0764123408"
+                    },
+                    {
+                        "type": "ISBN_13",
+                        "identifier": "9780764123405"
+                    }
+                ],
+                "readingModes": {
+                    "text": false,
+                    "image": true
+                },
+                "pageCount": 396,
+                "printType": "BOOK",
+                "categories": [
+                    "Study Aids"
+                ],
+                "maturityRating": "NOT_MATURE",
+                "allowAnonLogging": false,
+                "contentVersion": "0.0.1.0.preview.1",
+                "imageLinks": {
+                    "smallThumbnail": "http://books.google.com/books/content?id=3w1I6T4QDc0C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                    "thumbnail": "http://books.google.com/books/content?id=3w1I6T4QDc0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                },
+                "language": "en",
+                "previewLink": "http://books.google.com/books?id=3w1I6T4QDc0C&printsec=frontcover&dq=test&hl=&cd=2&source=gbs_api",
+                "infoLink": "http://books.google.com/books?id=3w1I6T4QDc0C&dq=test&hl=&source=gbs_api",
+                "canonicalVolumeLink": "http://books.google.com/books/about/How_to_Prepare_for_the_Mechanical_Aptitu.html?hl=&id=3w1I6T4QDc0C"
+            },
+            "saleInfo": {
+                "country": "IL",
+                "saleability": "NOT_FOR_SALE",
+                "isEbook": false
+            },
+            "accessInfo": {
+                "country": "IL",
+                "viewability": "PARTIAL",
+                "embeddable": true,
+                "publicDomain": false,
+                "textToSpeechPermission": "ALLOWED",
+                "epub": {
+                    "isAvailable": false
+                },
+                "pdf": {
+                    "isAvailable": false
+                },
+                "webReaderLink": "http://books.google.com/books/reader?id=3w1I6T4QDc0C&hl=&printsec=frontcover&output=reader&source=gbs_api",
+                "accessViewStatus": "SAMPLE",
+                "quoteSharingAllowed": false
+            },
+            "searchInfo": {
+                "textSnippet": "Provides exercises, examples, test-taking advice, and eighteen full-length practice exams."
+            }
+        },
+        {
+            "kind": "books#volume",
+            "id": "gFgnde_vwMAC",
+            "etag": "6UHxbU6QWI8",
+            "selfLink": "https://www.googleapis.com/books/v1/volumes/gFgnde_vwMAC",
+            "volumeInfo": {
+                "title": "Test-driven Development",
+                "subtitle": "By Example",
+                "authors": [
+                    "Kent Beck"
+                ],
+                "publisher": "Addison-Wesley Professional",
+                "publishedDate": "2003",
+                "description": "Write clean code that works with the help of this groundbreaking software method. Example-driven teaching is the basis of Beck's step-by-step instruction that will have readers using TDD to further their projects.",
+                "industryIdentifiers": [
+                    {
+                        "type": "ISBN_10",
+                        "identifier": "0321146530"
+                    },
+                    {
+                        "type": "ISBN_13",
+                        "identifier": "9780321146533"
+                    }
+                ],
+                "readingModes": {
+                    "text": true,
+                    "image": true
+                },
+                "pageCount": 220,
+                "printType": "BOOK",
+                "categories": [
+                    "Computers"
+                ],
+                "averageRating": 4.0,
+                "ratingsCount": 34,
+                "maturityRating": "NOT_MATURE",
+                "allowAnonLogging": false,
+                "contentVersion": "1.0.2.0.preview.3",
+                "imageLinks": {
+                    "smallThumbnail": "http://books.google.com/books/content?id=gFgnde_vwMAC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                    "thumbnail": "http://books.google.com/books/content?id=gFgnde_vwMAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                },
+                "language": "en",
+                "previewLink": "http://books.google.com/books?id=gFgnde_vwMAC&printsec=frontcover&dq=test&hl=&cd=3&source=gbs_api",
+                "infoLink": "http://books.google.com/books?id=gFgnde_vwMAC&dq=test&hl=&source=gbs_api",
+                "canonicalVolumeLink": "http://books.google.com/books/about/Test_driven_Development.html?hl=&id=gFgnde_vwMAC"
+            },
+            "saleInfo": {
+                "country": "IL",
+                "saleability": "NOT_FOR_SALE",
+                "isEbook": false
+            },
+            "accessInfo": {
+                "country": "IL",
+                "viewability": "PARTIAL",
+                "embeddable": true,
+                "publicDomain": false,
+                "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+                "epub": {
+                    "isAvailable": false
+                },
+                "pdf": {
+                    "isAvailable": false
+                },
+                "webReaderLink": "http://books.google.com/books/reader?id=gFgnde_vwMAC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+                "accessViewStatus": "SAMPLE",
+                "quoteSharingAllowed": false
+            },
+            "searchInfo": {
+                "textSnippet": "Clean code that works--now. This is the seeming contradiction that lies behind much of the pain of programming. Test-driven development replies to this contradiction with a paradox--test the program before you write it. A new idea?"
+            }
+        },
+        {
+            "kind": "books#volume",
+            "id": "MePytSBVyX8C",
+            "etag": "gsb+ujrdRxI",
+            "selfLink": "https://www.googleapis.com/books/v1/volumes/MePytSBVyX8C",
+            "volumeInfo": {
+                "title": "TOEFL Test Strategies",
+                "authors": [
+                    "Eli Hinkel"
+                ],
+                "publisher": "Barron's Educational Series",
+                "publishedDate": "2004-01-01",
+                "description": "A guide to mastering the TOEFL provides sample exams, test-taking strategies, and explanatory answers.",
+                "industryIdentifiers": [
+                    {
+                        "type": "ISBN_10",
+                        "identifier": "0764123424"
+                    },
+                    {
+                        "type": "ISBN_13",
+                        "identifier": "9780764123429"
+                    }
+                ],
+                "readingModes": {
+                    "text": false,
+                    "image": true
+                },
+                "pageCount": 469,
+                "printType": "BOOK",
+                "categories": [
+                    "Study Aids"
+                ],
+                "averageRating": 4.0,
+                "ratingsCount": 5,
+                "maturityRating": "NOT_MATURE",
+                "allowAnonLogging": false,
+                "contentVersion": "0.0.1.0.preview.1",
+                "imageLinks": {
+                    "smallThumbnail": "http://books.google.com/books/content?id=MePytSBVyX8C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                    "thumbnail": "http://books.google.com/books/content?id=MePytSBVyX8C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                },
+                "language": "en",
+                "previewLink": "http://books.google.com/books?id=MePytSBVyX8C&printsec=frontcover&dq=test&hl=&cd=4&source=gbs_api",
+                "infoLink": "http://books.google.com/books?id=MePytSBVyX8C&dq=test&hl=&source=gbs_api",
+                "canonicalVolumeLink": "http://books.google.com/books/about/TOEFL_Test_Strategies.html?hl=&id=MePytSBVyX8C"
+            },
+            "saleInfo": {
+                "country": "IL",
+                "saleability": "NOT_FOR_SALE",
+                "isEbook": false
+            },
+            "accessInfo": {
+                "country": "IL",
+                "viewability": "PARTIAL",
+                "embeddable": true,
+                "publicDomain": false,
+                "textToSpeechPermission": "ALLOWED",
+                "epub": {
+                    "isAvailable": false
+                },
+                "pdf": {
+                    "isAvailable": false
+                },
+                "webReaderLink": "http://books.google.com/books/reader?id=MePytSBVyX8C&hl=&printsec=frontcover&output=reader&source=gbs_api",
+                "accessViewStatus": "SAMPLE",
+                "quoteSharingAllowed": false
+            },
+            "searchInfo": {
+                "textSnippet": "A guide to mastering the TOEFL provides sample exams, test-taking strategies, and explanatory answers. back cover If you plan to take the TOEFL and get a high score, you need this book."
+            }
+        },
+        {
+            "kind": "books#volume",
+            "id": "62pUzABIZSwC",
+            "etag": "7oOY59bInvQ",
+            "selfLink": "https://www.googleapis.com/books/v1/volumes/62pUzABIZSwC",
+            "volumeInfo": {
+                "title": "Experiences of Test Automation",
+                "subtitle": "Case Studies of Software Test Automation",
+                "authors": [
+                    "Dorothy Graham",
+                    "Mark Fewster"
+                ],
+                "publisher": "Addison-Wesley Professional",
+                "publishedDate": "2012",
+                "description": "A unique book that consists entirely of test automation case studies from a variety of domains - from the top names in the field * *Proven advice to empower development organizations to save time by mirroring others' experiences and save money by avoiding others' mistakes. *Insightful case studies from a wide variety of domains, including aerospace, pharmaceuticals, insurance, technology, and telecommunications. *Focuses on the basic issues, rather then technology trends, to give the book a long shelf life. The practice of test automation is becoming more and more popular, but many organizations are not yet experiencing success with it. This book unveils the secrets of how automation has been made to work in reality. The knowledge gained by reading this book can save months or years of effort in automating software testing by helping organizations avoid expensive mistakes and take advantage of proven ideas. By its nature, this book shows the current state of software test automation practice. The authors aim to keep the contributions focused on those things that are more universal (e.g. people issues, return on investment, etc.) and to minimize detailed technical content where this does not impede the process of learning valuable lessons, in order to give the book as long a shelf life as possible. Software practitioners always enjoy reading about what happened to others. For example, at conferences, case study presentations are usually very well attended. The authors/editors have gathered together a collection of experiences from a cross-section of industries and countries, both success stories and failures, in both agile and traditional development. In addition to the case studies, the authors/editors comment on issues raised in these stories, and also include a chapter summarizing good practices and common pitfalls.",
+                "industryIdentifiers": [
+                    {
+                        "type": "ISBN_13",
+                        "identifier": "9780321754066"
+                    },
+                    {
+                        "type": "ISBN_10",
+                        "identifier": "0321754069"
+                    }
+                ],
+                "readingModes": {
+                    "text": false,
+                    "image": true
+                },
+                "pageCount": 617,
+                "printType": "BOOK",
+                "categories": [
+                    "Computers"
+                ],
+                "averageRating": 4.0,
+                "ratingsCount": 3,
+                "maturityRating": "NOT_MATURE",
+                "allowAnonLogging": false,
+                "contentVersion": "preview-1.0.0",
+                "imageLinks": {
+                    "smallThumbnail": "http://books.google.com/books/content?id=62pUzABIZSwC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                    "thumbnail": "http://books.google.com/books/content?id=62pUzABIZSwC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                },
+                "language": "en",
+                "previewLink": "http://books.google.com/books?id=62pUzABIZSwC&printsec=frontcover&dq=test&hl=&cd=5&source=gbs_api",
+                "infoLink": "http://books.google.com/books?id=62pUzABIZSwC&dq=test&hl=&source=gbs_api",
+                "canonicalVolumeLink": "http://books.google.com/books/about/Experiences_of_Test_Automation.html?hl=&id=62pUzABIZSwC"
+            },
+            "saleInfo": {
+                "country": "IL",
+                "saleability": "NOT_FOR_SALE",
+                "isEbook": false
+            },
+            "accessInfo": {
+                "country": "IL",
+                "viewability": "PARTIAL",
+                "embeddable": true,
+                "publicDomain": false,
+                "textToSpeechPermission": "ALLOWED_FOR_ACCESSIBILITY",
+                "epub": {
+                    "isAvailable": false
+                },
+                "pdf": {
+                    "isAvailable": false
+                },
+                "webReaderLink": "http://books.google.com/books/reader?id=62pUzABIZSwC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+                "accessViewStatus": "SAMPLE",
+                "quoteSharingAllowed": false
+            },
+            "searchInfo": {
+                "textSnippet": "This book addresses both management and technical issues, describing failures and successes, brilliant ideas and disastrous decisions and, above all, offers specific lessons you can use."
+            }
+        },
+        {
+            "kind": "books#volume",
+            "id": "G5V4NcWUGu4C",
+            "etag": "E6YXdm5N8g0",
+            "selfLink": "https://www.googleapis.com/books/v1/volumes/G5V4NcWUGu4C",
+            "volumeInfo": {
+                "title": "Barron's SAT Subject Test in Literature",
+                "authors": [
+                    "Christina Myers-Shaffer"
+                ],
+                "publisher": "Barron's Educational Series",
+                "publishedDate": "2008",
+                "description": "Updated to reflect the latest subject tests in literature, this manual presents seven full-length practice tests, and two diagnostic tests. Also included is reference and review material to help students develop critical skills, analyze works of literature, and write papers on literary topics.",
+                "industryIdentifiers": [
+                    {
+                        "type": "ISBN_10",
+                        "identifier": "0764192779"
+                    },
+                    {
+                        "type": "ISBN_13",
+                        "identifier": "9780764192777"
+                    }
+                ],
+                "readingModes": {
+                    "text": false,
+                    "image": true
+                },
+                "pageCount": 402,
+                "printType": "BOOK",
+                "categories": [
+                    "Literature"
+                ],
+                "maturityRating": "NOT_MATURE",
+                "allowAnonLogging": false,
+                "contentVersion": "preview-1.0.0",
+                "imageLinks": {
+                    "smallThumbnail": "http://books.google.com/books/content?id=G5V4NcWUGu4C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                    "thumbnail": "http://books.google.com/books/content?id=G5V4NcWUGu4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                },
+                "language": "en",
+                "previewLink": "http://books.google.com/books?id=G5V4NcWUGu4C&printsec=frontcover&dq=test&hl=&cd=6&source=gbs_api",
+                "infoLink": "http://books.google.com/books?id=G5V4NcWUGu4C&dq=test&hl=&source=gbs_api",
+                "canonicalVolumeLink": "http://books.google.com/books/about/Barron_s_SAT_Subject_Test_in_Literature.html?hl=&id=G5V4NcWUGu4C"
+            },
+            "saleInfo": {
+                "country": "IL",
+                "saleability": "NOT_FOR_SALE",
+                "isEbook": false
+            },
+            "accessInfo": {
+                "country": "IL",
+                "viewability": "PARTIAL",
+                "embeddable": true,
+                "publicDomain": false,
+                "textToSpeechPermission": "ALLOWED",
+                "epub": {
+                    "isAvailable": false
+                },
+                "pdf": {
+                    "isAvailable": true,
+                    "acsTokenLink": "http://books.google.com/books/download/Barron_s_SAT_Subject_Test_in_Literature-sample-pdf.acsm?id=G5V4NcWUGu4C&format=pdf&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+                },
+                "webReaderLink": "http://books.google.com/books/reader?id=G5V4NcWUGu4C&hl=&printsec=frontcover&output=reader&source=gbs_api",
+                "accessViewStatus": "SAMPLE",
+                "quoteSharingAllowed": false
+            },
+            "searchInfo": {
+                "textSnippet": "Updated to reflect the latest subject tests in literature, this manual presents seven full-length practice tests, and two diagnostic tests."
+            }
+        },
+        {
+            "kind": "books#volume",
+            "id": "AgVJs_uZeL0C",
+            "etag": "KWXbu5F/CfA",
+            "selfLink": "https://www.googleapis.com/books/v1/volumes/AgVJs_uZeL0C",
+            "volumeInfo": {
+                "title": "Addressing Test Anxiety in a High-Stakes Environment",
+                "subtitle": "Strategies for Classrooms and Schools",
+                "authors": [
+                    "Gregory J. Cizek",
+                    "Samantha S. Burg"
+                ],
+                "publisher": "Corwin Press",
+                "publishedDate": "2006",
+                "description": "This research-based guide offers recommendations for dealing with test anxiety, and includes suggestions on reducing its effects and identifying situations in which it can actually be helpful.",
+                "industryIdentifiers": [
+                    {
+                        "type": "ISBN_10",
+                        "identifier": "1412908906"
+                    },
+                    {
+                        "type": "ISBN_13",
+                        "identifier": "9781412908900"
+                    }
+                ],
+                "readingModes": {
+                    "text": true,
+                    "image": true
+                },
+                "pageCount": 178,
+                "printType": "BOOK",
+                "categories": [
+                    "Education"
+                ],
+                "maturityRating": "NOT_MATURE",
+                "allowAnonLogging": false,
+                "contentVersion": "0.0.1.0.preview.3",
+                "imageLinks": {
+                    "smallThumbnail": "http://books.google.com/books/content?id=AgVJs_uZeL0C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                    "thumbnail": "http://books.google.com/books/content?id=AgVJs_uZeL0C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                },
+                "language": "en",
+                "previewLink": "http://books.google.com/books?id=AgVJs_uZeL0C&printsec=frontcover&dq=test&hl=&cd=7&source=gbs_api",
+                "infoLink": "http://books.google.com/books?id=AgVJs_uZeL0C&dq=test&hl=&source=gbs_api",
+                "canonicalVolumeLink": "http://books.google.com/books/about/Addressing_Test_Anxiety_in_a_High_Stakes.html?hl=&id=AgVJs_uZeL0C"
+            },
+            "saleInfo": {
+                "country": "IL",
+                "saleability": "NOT_FOR_SALE",
+                "isEbook": false
+            },
+            "accessInfo": {
+                "country": "IL",
+                "viewability": "PARTIAL",
+                "embeddable": true,
+                "publicDomain": false,
+                "textToSpeechPermission": "ALLOWED",
+                "epub": {
+                    "isAvailable": true,
+                    "acsTokenLink": "http://books.google.com/books/download/Addressing_Test_Anxiety_in_a_High_Stakes-sample-epub.acsm?id=AgVJs_uZeL0C&format=epub&output=acs4_fulfillment_token&dl_type=sample&source=gbs_api"
+                },
+                "pdf": {
+                    "isAvailable": false
+                },
+                "webReaderLink": "http://books.google.com/books/reader?id=AgVJs_uZeL0C&hl=&printsec=frontcover&output=reader&source=gbs_api",
+                "accessViewStatus": "SAMPLE",
+                "quoteSharingAllowed": false
+            },
+            "searchInfo": {
+                "textSnippet": "This research-based guide offers recommendations for dealing with test anxiety, and includes suggestions on reducing its effects and identifying situations in which it can actually be helpful."
+            }
+        },
+        {
+            "kind": "books#volume",
+            "id": "vN-JoIhviiAC",
+            "etag": "O6qcXXdbHoY",
+            "selfLink": "https://www.googleapis.com/books/v1/volumes/vN-JoIhviiAC",
+            "volumeInfo": {
+                "title": "The Times Book of IQ Tests",
+                "authors": [
+                    "Kenneth A. Russell",
+                    "Philip J. Carter"
+                ],
+                "publisher": "Kogan Page Publishers",
+                "publishedDate": "2002",
+                "description": "400 never before published questions, complete with a guide to assessing your performance provide you with plenty of opportunity to practice, whether it's for a job interview or for your own entertainment.",
+                "industryIdentifiers": [
+                    {
+                        "type": "ISBN_10",
+                        "identifier": "0749437332"
+                    },
+                    {
+                        "type": "ISBN_13",
+                        "identifier": "9780749437336"
+                    }
+                ],
+                "readingModes": {
+                    "text": false,
+                    "image": true
+                },
+                "pageCount": 195,
+                "printType": "BOOK",
+                "categories": [
+                    "Games"
+                ],
+                "averageRating": 5.0,
+                "ratingsCount": 1,
+                "maturityRating": "NOT_MATURE",
+                "allowAnonLogging": false,
+                "contentVersion": "0.1.1.0.preview.1",
+                "imageLinks": {
+                    "smallThumbnail": "http://books.google.com/books/content?id=vN-JoIhviiAC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                    "thumbnail": "http://books.google.com/books/content?id=vN-JoIhviiAC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                },
+                "language": "en",
+                "previewLink": "http://books.google.com/books?id=vN-JoIhviiAC&printsec=frontcover&dq=test&hl=&cd=8&source=gbs_api",
+                "infoLink": "http://books.google.com/books?id=vN-JoIhviiAC&dq=test&hl=&source=gbs_api",
+                "canonicalVolumeLink": "http://books.google.com/books/about/The_Times_Book_of_IQ_Tests.html?hl=&id=vN-JoIhviiAC"
+            },
+            "saleInfo": {
+                "country": "IL",
+                "saleability": "NOT_FOR_SALE",
+                "isEbook": false
+            },
+            "accessInfo": {
+                "country": "IL",
+                "viewability": "PARTIAL",
+                "embeddable": true,
+                "publicDomain": false,
+                "textToSpeechPermission": "ALLOWED",
+                "epub": {
+                    "isAvailable": false
+                },
+                "pdf": {
+                    "isAvailable": false
+                },
+                "webReaderLink": "http://books.google.com/books/reader?id=vN-JoIhviiAC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+                "accessViewStatus": "SAMPLE",
+                "quoteSharingAllowed": false
+            },
+            "searchInfo": {
+                "textSnippet": "400 never before published questions, complete with a guide to assessing your performance provide you with plenty of opportunity to practice, whether it&#39;s for a job interview or for your own entertainment."
+            }
+        },
+        {
+            "kind": "books#volume",
+            "id": "U765adeBPlEC",
+            "etag": "GyDh/+lHOrY",
+            "selfLink": "https://www.googleapis.com/books/v1/volumes/U765adeBPlEC",
+            "volumeInfo": {
+                "title": "Hair Test Interpretation",
+                "subtitle": "Finding Hidden Toxicities",
+                "authors": [
+                    "Andrew Hall Cutler"
+                ],
+                "publisher": "Andrew Cutler",
+                "publishedDate": "2004",
+                "description": "\"Interpretation of hair element tests including effects of mercury on mineral levels, with description of effects of toxicity and if relevant deficiency of each element plus treatment information, plus 70 interpreted hair tests with discussion.\"",
+                "industryIdentifiers": [
+                    {
+                        "type": "ISBN_10",
+                        "identifier": "0967616816"
+                    },
+                    {
+                        "type": "ISBN_13",
+                        "identifier": "9780967616810"
+                    }
+                ],
+                "readingModes": {
+                    "text": false,
+                    "image": true
+                },
+                "pageCount": 298,
+                "printType": "BOOK",
+                "categories": [
+                    "Science"
+                ],
+                "averageRating": 5.0,
+                "ratingsCount": 2,
+                "maturityRating": "NOT_MATURE",
+                "allowAnonLogging": false,
+                "contentVersion": "preview-1.0.0",
+                "imageLinks": {
+                    "smallThumbnail": "http://books.google.com/books/content?id=U765adeBPlEC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                    "thumbnail": "http://books.google.com/books/content?id=U765adeBPlEC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                },
+                "language": "en",
+                "previewLink": "http://books.google.com/books?id=U765adeBPlEC&printsec=frontcover&dq=test&hl=&cd=9&source=gbs_api",
+                "infoLink": "http://books.google.com/books?id=U765adeBPlEC&dq=test&hl=&source=gbs_api",
+                "canonicalVolumeLink": "http://books.google.com/books/about/Hair_Test_Interpretation.html?hl=&id=U765adeBPlEC"
+            },
+            "saleInfo": {
+                "country": "IL",
+                "saleability": "NOT_FOR_SALE",
+                "isEbook": false
+            },
+            "accessInfo": {
+                "country": "IL",
+                "viewability": "PARTIAL",
+                "embeddable": true,
+                "publicDomain": false,
+                "textToSpeechPermission": "ALLOWED",
+                "epub": {
+                    "isAvailable": false
+                },
+                "pdf": {
+                    "isAvailable": false
+                },
+                "webReaderLink": "http://books.google.com/books/reader?id=U765adeBPlEC&hl=&printsec=frontcover&output=reader&source=gbs_api",
+                "accessViewStatus": "SAMPLE",
+                "quoteSharingAllowed": false
+            },
+            "searchInfo": {
+                "textSnippet": "&quot;Interpretation of hair element tests including effects of mercury on mineral levels, with description of effects of toxicity and if relevant deficiency of each element plus treatment information, plus 70 interpreted hair tests with ..."
+            }
+        },
+        {
+            "kind": "books#volume",
+            "id": "uDWZ6KcKxX4C",
+            "etag": "NnlJf9o34GM",
+            "selfLink": "https://www.googleapis.com/books/v1/volumes/uDWZ6KcKxX4C",
+            "volumeInfo": {
+                "title": "Mechanical Aptitude and Spatial Relations Tests",
+                "authors": [
+                    "Joel Wiesen"
+                ],
+                "publisher": "Barron's Educational Series",
+                "publishedDate": "2009-01-06",
+                "description": "This manual presents 18 practice tests in both mechanical aptitude & spatial ability with answers & detailed explanations for all questions.",
+                "industryIdentifiers": [
+                    {
+                        "type": "ISBN_10",
+                        "identifier": "0764141082"
+                    },
+                    {
+                        "type": "ISBN_13",
+                        "identifier": "9780764141089"
+                    }
+                ],
+                "readingModes": {
+                    "text": false,
+                    "image": false
+                },
+                "pageCount": 468,
+                "printType": "BOOK",
+                "categories": [
+                    "Study Aids"
+                ],
+                "maturityRating": "NOT_MATURE",
+                "allowAnonLogging": false,
+                "contentVersion": "0.0.1.0.preview.0",
+                "imageLinks": {
+                    "smallThumbnail": "http://books.google.com/books/content?id=uDWZ6KcKxX4C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                    "thumbnail": "http://books.google.com/books/content?id=uDWZ6KcKxX4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
+                },
+                "language": "en",
+                "previewLink": "http://books.google.com/books?id=uDWZ6KcKxX4C&printsec=frontcover&dq=test&hl=&cd=10&source=gbs_api",
+                "infoLink": "http://books.google.com/books?id=uDWZ6KcKxX4C&dq=test&hl=&source=gbs_api",
+                "canonicalVolumeLink": "http://books.google.com/books/about/Mechanical_Aptitude_and_Spatial_Relation.html?hl=&id=uDWZ6KcKxX4C"
+            },
+            "saleInfo": {
+                "country": "IL",
+                "saleability": "NOT_FOR_SALE",
+                "isEbook": false
+            },
+            "accessInfo": {
+                "country": "IL",
+                "viewability": "PARTIAL",
+                "embeddable": true,
+                "publicDomain": false,
+                "textToSpeechPermission": "ALLOWED",
+                "epub": {
+                    "isAvailable": false
+                },
+                "pdf": {
+                    "isAvailable": false
+                },
+                "webReaderLink": "http://books.google.com/books/reader?id=uDWZ6KcKxX4C&hl=&printsec=frontcover&output=reader&source=gbs_api",
+                "accessViewStatus": "SAMPLE",
+                "quoteSharingAllowed": false
+            },
+            "searchInfo": {
+                "textSnippet": "This manual presents 18 practice tests in both mechanical aptitude &amp; spatial ability with answers &amp; detailed explanations for all questions."
+            }
+        }
+    ]
+}
