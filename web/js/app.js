@@ -219,6 +219,44 @@ var BookDetails = React.createClass({
     }
 });
 
+var QueryStats = React.createClass({
+    render: function () {
+        var table = !isNaN(this.props.total) ? (
+            <table id="stats" className="table table-striped">
+              <thead>
+                <tr>
+                  <th>Statistic</th>
+                  <th>Value</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Total results found</td>
+                  <td>{this.props.total}</td>
+                </tr>
+                <tr>
+                  <td>Average rating</td>
+                  <td>{this.props.avgRating}</td>
+                </tr>
+                <tr>
+                  <td>Longerst book</td>
+                  <td>{this.props.longest}</td>
+                </tr>
+                <tr>
+                  <td>Most popular publisher</td>
+                  <td>{this.props.mostPopularPublisher}</td>
+                </tr>
+              </tbody>
+            </table>) : "";
+        return (
+            <div className="row">
+              <div className="col-lg- left-padded">
+                {table}
+              </div>
+            </div>);
+    }
+});
+
 /**
  * Plot class (this class renders the Flot applet).
  */
@@ -261,27 +299,21 @@ var Plot = React.createClass({
             });
         } else { $("#plot").empty(); }
     },
-
-    /**
-     * Generate description for the plot.
-     */
-    describe: function () {
-        if (this.props.data.bars.length)
-            return "Books found by the year they were published.";
-        return "";
-    },
     
     render: function () {
+        var query = this.props.query || {};
         return (
             <div className="col-lg-12">
               <div className="row">
                 <div id="plot"/>
               </div>
-              <div className="row">
-                <div className="left-padded">
-                  <p>{this.describe()}</p>
-                </div>
-              </div>
+              <QueryStats
+                total={query.total}
+                avgRating={query.avgRating}
+                longest={query.longest}
+                newest={query.newest}
+                mostPopularPublisher={query.publisher}
+                />
             </div>);
     },
     componentDidUpdate: function () { this.renderPlot(); },
@@ -474,12 +506,92 @@ var ContentPane = React.createClass({
                   <h2 className="light-text">Statistics</h2>
                 </div>
                 <div className="row plot-row">
-                  <Plot data={this.props.plotData}/>
+                  <Plot data={this.props.plotData}
+                        query={this.props.query}
+                        />
                 </div>
               </div>
             </div>);
     }
 });
+
+/**
+ * Mixin for calculating query statistics.
+ */
+var StatsCalculator = {
+
+    /**
+     * Utility function to safely access volume info of the book.
+     */
+    volumeInfo: function (result) {
+        return (result || {}).volumeInfo || {};
+    },
+
+    /**
+     * Computes average rating.
+     */
+    avgRating: function (books) {
+        return _.reduce(books, function (a, b) {
+            return a + b.volumeInfo.averageRating;
+        }, 0) / books.length;
+    },
+
+    /**
+     * Finds the title of the longest book.
+     */
+    longest: function (books) {
+        return this.volumeInfo(
+            _.max(books, function (book) {
+                return book.volumeInfo.pageCount;
+            })).title;
+    },
+
+    /**
+     * Finds the title of the newest book.
+     */
+    newest: function (books) {
+        return this.volumeInfo(
+            _.max(books, function (book) {
+                return book.volumeInfo.publishedDate;
+            })).title;
+    },
+    
+    /**
+     * Finds the publisher who published most books.
+     */
+    mostPopularPublisher: function (books) {
+        return this.volumeInfo(
+            _.max(_.groupBy(books, function (book) {
+                return book.volumeInfo.publisher;
+            }), function (book) { return book.length; })[0]).publisher;
+    },
+
+    /**
+     * Removes books for which the `key' parameter is NaN.
+     */
+    sanitize: function (books, key) {
+        return _.filter(books, function (book) {
+            return book && book.volumeInfo &&
+                book.volumeInfo.hasOwnProperty(key);
+        });
+    },
+    
+    /**
+     * Prepares query statistics in order to be displayed in HTML.
+     */
+    calcStats: function (result) {
+        var books = this.state.previews;
+        result.avgRating = this.avgRating(
+            this.sanitize(books, "averageRating"));
+        result.longest = this.longest(
+            this.sanitize(books, "pageCount"));
+        result.newest = this.newest(
+            this.sanitize(books, "publishedDate"));
+        result.publisher = this.mostPopularPublisher(
+            this.sanitize(books, "publisher"));
+        return result;
+    }
+};
 
 /**
  * BootstrapContainer class (the top-level component).
@@ -488,7 +600,7 @@ var ContentPane = React.createClass({
  */
 var BootstrapContainer = React.createClass({
     
-    mixins: [ModalMixin],
+    mixins: [ModalMixin, StatsCalculator],
 
     defaultActive: function () {
         return {
@@ -509,6 +621,7 @@ var BootstrapContainer = React.createClass({
             startIndex: 0,
             maxResults: 5,
             googleFailed: false,
+            totalResults: NaN,
             active: this.defaultActive()
         };
     },
@@ -563,6 +676,22 @@ var BootstrapContainer = React.createClass({
             "by price": byPrice,
             "alphabetically": alphabetically
         };
+    },
+
+    queryStats: function () {
+        var result;
+        if (!isNaN(this.state.totalResults)) {
+            result = this.calcStats({ total: this.state.totalResults });
+        } else {
+            result = {
+                total: NaN,
+                avgRating: NaN,
+                longest: "",
+                newest: "",
+                publisher: ""
+            };
+        }
+        return result;
     },
 
     /**
@@ -624,6 +753,8 @@ var BootstrapContainer = React.createClass({
             .fail(_.partial(itemErrorHandler, item))
             .fail(that.displayError);
         }.bind(this));
+
+        this.setState({ totalResults: data.totalItems });
     },
 
     /**
@@ -679,7 +810,8 @@ var BootstrapContainer = React.createClass({
                 this.setState({
                     active: this.defaultActive(),
                     selected: "",
-                    previews: []
+                    previews: [],
+                    totalResults: NaN
                 });
             }.bind(this));
             node.on("sort", function (event, criteria) {
@@ -707,6 +839,7 @@ var BootstrapContainer = React.createClass({
                 selected={this.state.selected}
                 active={this.state.active}
                 plotData={this.preparePlot()}
+                query={this.queryStats()}
                 />
             </div>
         );

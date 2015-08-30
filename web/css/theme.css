@@ -5774,7 +5774,7 @@ h4.author { padding-left: 48px }
 
 #submit { margin-bottom: 14px }
 
-#plot {
+#plot, #stats {
     min-width: 640px; min-height: 400px; float: left;
     margin-bottom: 12px; margin-top: 18px; margin-left: 118px }
 #ranking { font-size: 24px }
